@@ -745,15 +745,36 @@ section {
 
 .testimonial-card {
     min-width: 450px;
+    max-width: 450px;
+    min-height: 450px;
     flex-shrink: 0;
-}
-
-.testimonial-card {
     background: var(--white);
     padding: 48px;
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Alternating colors: blue and grey */
+.testimonial-card:nth-child(odd) {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+}
+
+.testimonial-card:nth-child(odd) .testimonial-text,
+.testimonial-card:nth-child(odd) .author-name,
+.testimonial-card:nth-child(odd) .author-title {
+    color: var(--text-light);
+}
+
+.testimonial-card:nth-child(odd) .quote-mark {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.testimonial-card:nth-child(even) {
+    background: var(--light-grey);
 }
 
 .quote-mark {
