@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make God the CEO: Building a Faith-Driven Business | Nate Yoder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1DA1F2;
+            --primary-dark: #1A8CD8;
+            --navy: #1A2332;
+            --charcoal: #2D3748;
+            --white: #FFFFFF;
+            --light-grey: #F9FAFB;
+            --grey: #E5E7EB;
+            --text-dark: #1F2937;
+            --text-light: #FFFFFF;
+            --text-muted: #6B7280;
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            background: rgba(26, 35, 50, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-nav {
+            background: var(--primary);
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .btn-nav:hover {
+            background: var(--primary-dark);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .article-hero {
+            background: var(--navy);
+            color: var(--white);
+            padding: 140px 0 80px;
+            text-align: center;
+        }
+
+        .article-category {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .article-title {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .article-meta {
+            color: var(--grey);
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 0 24px;
+        }
+
+        .article-content h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-top: 60px;
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+
+        .article-content h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .article-content p {
+            margin-bottom: 24px;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .article-content strong {
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .article-content em {
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        .pullquote {
+            background: var(--light-grey);
+            border-left: 4px solid var(--primary);
+            padding: 32px;
+            margin: 40px 0;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--text-dark);
+        }
+
+        .key-takeaways {
+            background: var(--navy);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            margin: 60px 0;
+        }
+
+        .key-takeaways h3 {
+            color: var(--white);
+            margin-top: 0;
+        }
+
+        .key-takeaways ul {
+            list-style: none;
+            margin-top: 24px;
+        }
+
+        .key-takeaways li {
+            padding-left: 32px;
+            margin-bottom: 16px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .key-takeaways li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .cta-box h3 {
+            color: var(--white);
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .cta-box p {
+            color: var(--white);
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary);
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all var(--transition-smooth);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            background: var(--navy);
+            color: var(--light-grey);
+            padding: 60px 0 32px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .footer-links a {
+            color: var(--light-grey);
+            text-decoration: none;
+            transition: all var(--transition-smooth);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .article-title {
+                font-size: 36px;
+            }
+
+            .article-content h2 {
+                font-size: 28px;
+            }
+
+            .article-content h3 {
+                font-size: 22px;
+            }
+
+            .pullquote {
+                font-size: 20px;
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Nate Yoder</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services-v2.html">Services</a></li>
+                <li><a href="speaking.html">Speaking</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html" class="btn-nav">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="article-hero">
+        <div class="article-category">Faith & Leadership</div>
+        <h1 class="article-title">Make God the CEO: Building a Faith-Driven Business</h1>
+        <div class="article-meta">By Nate Yoder | 9 min read</div>
+    </section>
+
+    <article class="article-content">
+        <p>For years, I kept my faith and my business in separate boxes. On Sunday, I was a believer. Monday through Saturday, I was an entrepreneur. I told myself that was just how it worked—faith was personal, business was professional, and mixing the two felt uncomfortable.</p>
+
+        <p>But the truth is, I wasn't keeping them separate. I was letting my business philosophy shape my faith, instead of letting my faith shape my business. And it was slowly breaking me.</p>
+
+        <p>I was making decisions based on fear, control, and scarcity. I was working insane hours because I believed it all depended on me. I was chasing revenue at the expense of relationships. I was building something successful, but it didn't feel aligned.</p>
+
+        <p>Then I had a moment of clarity that changed everything: <strong>What if I actually made God the CEO of my business?</strong></p>
+
+        <p>Not as a tagline. Not as branding. But as the operating principle that guided every decision, every hire, every client conversation, and every strategy.</p>
+
+        <p>That shift didn't just change my business. It changed my life.</p>
+
+        <h2>What It Means to Make God the CEO</h2>
+
+        <p>Let me be clear about what this <em>isn't</em>. This isn't about slapping Bible verses on your website or playing worship music in the office. It's not about only working with Christian clients or turning every business conversation into an evangelism opportunity.</p>
+
+        <p>Making God the CEO means <strong>operating your business according to His principles, trusting His timing, and prioritizing His values over the world's metrics of success.</strong></p>
+
+        <p>Here's what that looks like in practice:</p>
+
+        <h3>1. Stewardship Over Ownership</h3>
+
+        <p>When I started treating my business as something I stewarded rather than something I owned, everything shifted. It wasn't "my" company anymore—it was a resource entrusted to me to manage well.</p>
+
+        <p>That mindset freed me from the crushing weight of thinking it all depended on me. Yes, I work hard. Yes, I make strategic decisions. But ultimately, the results aren't mine to control. My job is faithfulness, not outcomes.</p>
+
+        <p><strong>Practically, this means:</strong></p>
+        <ul style="margin-left: 24px; margin-bottom: 24px;">
+            <li>I don't hoard resources. I invest in people, give generously, and trust that God will provide.</li>
+            <li>I don't panic when things don't go as planned. I adjust, pray, and keep moving forward.</li>
+            <li>I measure success by faithfulness and impact, not just revenue and growth.</li>
+        </ul>
+
+        <h3>2. People Over Profit</h3>
+
+        <p>There's a lie the business world tells you: maximize profit at all costs. Cut corners. Extract value. Treat people as resources to be optimized.</p>
+
+        <p>But God's economy operates differently. People are made in His image. They have intrinsic worth that has nothing to do with their productivity. When you make God the CEO, you treat employees, clients, and vendors as people first—not as means to an end.</p>
+
+        <p><strong>Practically, this means:</strong></p>
+        <ul style="margin-left: 24px; margin-bottom: 24px;">
+            <li>Paying people well, even when it hurts your margins.</li>
+            <li>Saying no to clients or projects that don't align with your values, even if they're profitable.</li>
+            <li>Prioritizing rest and margin for your team—because burnt-out people can't serve well.</li>
+            <li>Building a culture where people feel valued, not exploited.</li>
+        </ul>
+
+        <p>This doesn't mean you're not profitable. It means you refuse to sacrifice people on the altar of profit.</p>
+
+        <h3>3. Integrity Over Image</h3>
+
+        <p>The pressure to project a perfect image is intense in the business world. Everyone's crushing it. Everyone's scaling. Everyone's posting wins on LinkedIn.</p>
+
+        <p>But when God is your CEO, integrity matters more than optics. You tell the truth—even when it's uncomfortable. You admit mistakes—even when it costs you. You keep your word—even when it's inconvenient.</p>
+
+        <p><strong>Practically, this means:</strong></p>
+        <ul style="margin-left: 24px; margin-bottom: 24px;">
+            <li>No shady marketing tactics, inflated claims, or deceptive pricing.</li>
+            <li>Owning your failures publicly and making them right.</li>
+            <li>Doing what you said you'd do, even if circumstances change and it's no longer profitable.</li>
+            <li>Building a reputation based on character, not just competence.</li>
+        </ul>
+
+        <div class="pullquote">
+            "A faith-driven business isn't defined by what you sell. It's defined by how you operate when no one is watching."
+        </div>
+
+        <h2>The Tension: Faith vs. "Best Practices"</h2>
+
+        <p>Here's where it gets hard. Sometimes, operating as a faith-driven business means doing things that don't make sense from a purely business perspective.</p>
+
+        <p>Paying more than market rate for talent. Turning down lucrative clients because the project doesn't align with your values. Choosing rest over relentless hustle. Giving generously even when cash flow is tight.</p>
+
+        <p>The world will tell you these decisions are naive. Unwise. Unsustainable.</p>
+
+        <p>But I've learned something counterintuitive: <strong>God honors faithfulness in ways the spreadsheet can't predict.</strong></p>
+
+        <p>I've watched clients come out of nowhere after we turned down a misaligned project. I've seen team members bring their best work because they felt valued, not exploited. I've experienced doors open that I never could have forced open on my own.</p>
+
+        <p>Faith isn't about ignoring wisdom or being reckless. It's about trusting that God's principles work—even when they seem to contradict conventional business logic.</p>
+
+        <h2>What Changed When I Made God the CEO</h2>
+
+        <p>This isn't theoretical for me. When I made this shift, tangible things changed in my business:</p>
+
+        <h3>I Stopped Operating from Fear</h3>
+
+        <p>Before, every decision was driven by scarcity. What if we lose this client? What if revenue drops? What if this doesn't work?</p>
+
+        <p>Fear made me controlling, reactive, and exhausted.</p>
+
+        <p>When I started trusting God as the actual CEO, I realized: my job is obedience, not outcomes. That freed me to make bold moves without the paralyzing fear of failure. I could take risks, trust my team, and rest in the knowledge that God's provision doesn't depend on my perfection.</p>
+
+        <h3>I Started Saying No to Good Opportunities</h3>
+
+        <p>This was hard. Really hard. But when you're operating with kingdom priorities, not every profitable opportunity is the right opportunity.</p>
+
+        <p>I turned down clients whose values didn't align with ours. I walked away from projects that would have generated revenue but compromised our integrity. I said no to partnerships that made business sense but didn't feel like the right fit spiritually.</p>
+
+        <p>And every single time I made those decisions, something better showed up. Not always immediately. But consistently.</p>
+
+        <h3>My Team Became More Than Employees</h3>
+
+        <p>When you treat people as image-bearers of God instead of cogs in a machine, culture changes. My team stopped feeling like they were working <em>for</em> me and started feeling like we were working <em>together</em> on something meaningful.</p>
+
+        <p>We pray before big decisions. We celebrate wins as a team. We support each other through hard seasons. It's not perfect—but it's real. And that sense of purpose is something no salary can replicate.</p>
+
+        <h3>My Relationship with Money Changed</h3>
+
+        <p>I used to worship at the altar of revenue growth. If the numbers were up, I was happy. If they were flat, I was anxious.</p>
+
+        <p>Now, I see money as a tool, not a scorecard. Yes, we need to be profitable. Yes, we need to steward resources well. But revenue is a means to an end—not the end itself.</p>
+
+        <p>We give generously. We invest in people. We prioritize long-term kingdom impact over short-term financial gain. And ironically, the business is healthier and more profitable than it's ever been.</p>
+
+        <div class="pullquote">
+            "When you stop chasing money and start chasing faithfulness, the money follows—but it stops controlling you."
+        </div>
+
+        <h2>Practical Steps to Make God the CEO of Your Business</h2>
+
+        <p>This isn't a one-time decision. It's a daily, sometimes moment-by-moment, choice to operate according to God's principles. Here's how to start:</p>
+
+        <h3>1. Start Your Day with Surrender</h3>
+
+        <p>Before you check email, before you look at your to-do list, spend time with God. Surrender the day. Acknowledge that He's in control, not you. Ask for wisdom, discernment, and faithfulness.</p>
+
+        <p>This isn't just a nice spiritual practice. It's a daily reset that reminds you who's actually running the show.</p>
+
+        <h3>2. Audit Your Decisions Against Kingdom Values</h3>
+
+        <p>Before making a major decision, ask yourself:</p>
+        <ul style="margin-left: 24px; margin-bottom: 24px;">
+            <li>Does this align with God's principles of integrity, generosity, and stewardship?</li>
+            <li>Am I making this decision out of fear or faith?</li>
+            <li>Does this honor people or exploit them?</li>
+            <li>If Jesus were sitting across the table, would I feel good about this choice?</li>
+        </ul>
+
+        <p>Those questions will clarify a lot.</p>
+
+        <h3>3. Build Generosity into Your Business Model</h3>
+
+        <p>Don't wait until you're "successful enough" to give. Build giving into your operations from day one. Whether it's tithing a percentage of revenue, serving pro bono clients, or supporting causes you care about—make generosity non-negotiable.</p>
+
+        <p>Generosity rewires your relationship with money and reminds you that it's not yours to hoard.</p>
+
+        <h3>4. Surround Yourself with Faith-Driven Entrepreneurs</h3>
+
+        <p>You need people who understand the tension of building a business while prioritizing kingdom values. Find a community—whether it's a mastermind, a church group, or a handful of trusted peers—who can encourage you, challenge you, and pray with you.</p>
+
+        <p>You can't do this alone.</p>
+
+        <h3>5. Measure Success Differently</h3>
+
+        <p>Revenue and growth matter. But they're not the only metrics. Start tracking:</p>
+        <ul style="margin-left: 24px; margin-bottom: 24px;">
+            <li>How well you're stewarding resources</li>
+            <li>How your team is thriving (not just performing)</li>
+            <li>The impact you're having on clients and community</li>
+            <li>How aligned your decisions are with your values</li>
+        </ul>
+
+        <p>When you measure what matters to God, you'll build something that lasts.</p>
+
+        <div class="key-takeaways">
+            <h3>Key Takeaways</h3>
+            <ul>
+                <li>Making God the CEO means operating according to His principles, not just adding Christian branding to your business.</li>
+                <li>Stewardship > Ownership. You manage the business; God owns it. That shift removes the crushing weight of control.</li>
+                <li>People > Profit. Treat employees, clients, and vendors as image-bearers, not resources to optimize.</li>
+                <li>Integrity > Image. Build a reputation on character, not just competence. Do the right thing even when no one's watching.</li>
+                <li>Faith-driven decisions sometimes contradict "best practices"—and that's okay. God honors faithfulness in ways you can't predict.</li>
+                <li>Generosity should be built into your business model from day one, not something you add later.</li>
+                <li>Measure success by faithfulness and kingdom impact, not just revenue and growth.</li>
+            </ul>
+        </div>
+
+        <h2>The Invitation</h2>
+
+        <p>If you've been keeping your faith and your business in separate boxes, I want to challenge you: What would change if you stopped compartmentalizing?</p>
+
+        <p>What if your business became a place where you lived out your faith every single day? Where your decisions reflected God's values, your leadership mirrored His character, and your success was measured by faithfulness, not just financials?</p>
+
+        <p>It won't be easy. You'll face tension. You'll make decisions that don't make sense to everyone else. You'll wrestle with fear and control and the pressure to conform.</p>
+
+        <p>But you'll also experience something most entrepreneurs never do: the peace that comes from knowing you're building something that matters beyond the bottom line.</p>
+
+        <p><strong>Make God the CEO. Watch what He does with your obedience.</strong></p>
+
+        <div class="cta-box">
+            <h3>Want to Go Deeper?</h3>
+            <p>Join me for a conversation about building faith-driven businesses that honor God and serve people well.</p>
+            <a href="contact.html" class="btn-cta">Let's Connect →</a>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services-v2.html">Services</a></li>
+            <li><a href="speaking.html">Speaking</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <p style="color: var(--text-muted);">&copy; 2024 Nate Yoder. All rights reserved.</p>
+    </footer>
+</body>
+</html>

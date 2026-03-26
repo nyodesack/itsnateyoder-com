@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Faith-Driven Business Blueprint - Free Course | Nate Yoder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --primary: #1DA1F2; --primary-dark: #1A8CD8; --navy: #1A2332; --charcoal: #2D3748;
+    --white: #FFFFFF; --light-grey: #F9FAFB; --text-dark: #1F2937; --text-light: #FFFFFF;
+    --text-muted: #6B7280; --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-primary); font-size: 18px; line-height: 1.7; color: var(--text-dark); background: var(--white); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 100%); padding: 120px 0 80px; }
+.hero-gradient { position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(29, 161, 242, 0.15) 0%, rgba(26, 35, 50, 0.9) 50%, rgba(29, 161, 242, 0.15) 100%);
+    animation: gradient-shift 20s ease infinite; }
+@keyframes gradient-shift { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+.hero-container { position: relative; z-index: 2; text-align: center; max-width: 900px; margin: 0 auto; }
+.hero-badge { display: inline-block; background: rgba(29, 161, 242, 0.25); color: var(--primary);
+    padding: 12px 28px; border-radius: 50px; font-size: 16px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 1.5px; margin-bottom: 32px; border: 2px solid rgba(29, 161, 242, 0.4); }
+.hero-title { font-size: 72px; font-weight: 900; line-height: 1.05; color: var(--text-light);
+    margin-bottom: 32px; text-shadow: 0 6px 24px rgba(0, 0, 0, 0.4); }
+.hero-subtitle { font-size: 28px; line-height: 1.4; color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 24px; font-weight: 500; }
+.value-prop { font-size: 20px; color: rgba(255, 255, 255, 0.8); margin-bottom: 56px;
+    max-width: 700px; margin-left: auto; margin-right: auto; }
+.modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px; margin: 64px 0; text-align: left; }
+.module-card { background: rgba(255, 255, 255, 0.95); padding: 32px; border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); border-left: 4px solid var(--primary); }
+.module-number { font-size: 14px; font-weight: 800; color: var(--primary); text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 12px; }
+.module-title { font-size: 22px; font-weight: 800; color: var(--text-dark); margin-bottom: 12px; }
+.module-description { font-size: 16px; color: var(--text-muted); line-height: 1.6; }
+.form-container { background: var(--white); border-radius: 24px; padding: 56px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35); max-width: 550px; margin: 0 auto; }
+.form-title { font-size: 32px; font-weight: 900; color: var(--text-dark); margin-bottom: 16px; }
+.form-subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 32px; }
+.form-group { margin-bottom: 24px; }
+.form-label { display: block; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; font-size: 16px; }
+.form-input { width: 100%; padding: 18px 24px; font-size: 17px; border: 2px solid #E5E7EB;
+    border-radius: 14px; font-family: var(--font-primary); transition: all 0.3s ease; }
+.form-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 5px rgba(29, 161, 242, 0.12); }
+.btn-submit { width: 100%; padding: 20px 40px; font-size: 20px; font-weight: 800; color: var(--text-light);
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border: none;
+    border-radius: 14px; cursor: pointer; transition: all 0.4s ease; text-transform: uppercase;
+    letter-spacing: 0.5px; }
+.btn-submit:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(29, 161, 242, 0.5); }
+.guarantee-box { background: var(--light-grey); padding: 32px; border-radius: 16px;
+    margin-top: 32px; border: 2px solid #E5E7EB; }
+.guarantee-title { font-size: 18px; font-weight: 800; color: var(--text-dark);
+    margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
+.guarantee-text { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+.success-message { display: none; text-align: center; padding: 56px; }
+.success-icon { font-size: 80px; margin-bottom: 32px; }
+.success-title { font-size: 36px; font-weight: 900; color: var(--text-dark); margin-bottom: 20px; }
+.success-text { font-size: 20px; color: var(--text-muted); line-height: 1.6; }
+@media (max-width: 768px) {
+    .hero-title { font-size: 48px; }
+    .hero-subtitle { font-size: 22px; }
+    .form-container { padding: 40px 32px; }
+    .modules-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-gradient"></div>
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-badge">🎁 FREE 7-MODULE INTENSIVE COURSE</div>
+                <h1 class="hero-title">The Faith-Driven Business Blueprint</h1>
+                <p class="hero-subtitle">Build a Kingdom Business That Honors God, Serves People, and Scales Profitably</p>
+                <p class="value-prop">
+                    <strong>Stop choosing between faith and profit.</strong> This isn't theory—it's the exact 7-step framework I used to build multiple businesses where God is CEO and revenue follows obedience.
+                </p>
+                
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <div class="module-number">Module 1</div>
+                        <h3 class="module-title">Make God the CEO</h3>
+                        <p class="module-description">The decision framework for running every business move through Biblical wisdom (not just prayer, but action). Includes the 3-question filter I use before every major decision.</p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-number">Module 2</div>
+                        <h3 class="module-title">Your Kingdom Purpose Statement</h3>
+                        <p class="module-description">Craft a mission that attracts believers AND non-believers. The exact template that helped me define purpose beyond profit in 30 minutes.</p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-number">Module 3</div>
+                        <h3 class="module-title">Integrity-First Systems</h3>
+                        <p class="module-description">Build operations where cutting corners isn't an option. SOPs that bake character into every process (with real examples from my businesses).</p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-number">Module 4</div>
+                        <h3 class="module-title">Stewardship Over Ownership</h3>
+                        <p class="module-description">The mindset shift from "my business" to "God's business" that unlocked explosive growth while reducing stress. Includes financial stewardship worksheets.</p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-number">Module 5</div>
+                        <h3 class="module-title">Hiring for Faith & Skill</h3>
+                        <p class="module-description">My 5-part interview framework to find A-players who share your values (without being weird about faith in secular markets).</p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-number">Module 6</div>
+                        <h3 class="module-title">Sabbath Rest in Scale</h3>
+                        <p class="module-description">How to grow revenue WITHOUT sacrificing family or faith. The 4-hour work boundary system that doubled my output.</p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-number">Module 7</div>
+                        <h3 class="module-title">Generosity as Growth Strategy</h3>
+                        <p class="module-description">Tithing, giving, and Kingdom ROI—the counterintuitive profit model that compounds both eternally and financially.</p>
+                    </div>
+                </div>
+                
+                <div class="form-container">
+                    <div id="downloadForm">
+                        <h2 class="form-title">Get Instant Access</h2>
+                        <p class="form-subtitle">7 modules. Zero fluff. Faith + business done right.</p>
+                        <form onsubmit="handleSubmit(event)">
+                            <div class="form-group">
+                                <label class="form-label" for="name">First Name</label>
+                                <input type="text" id="name" class="form-input" placeholder="Enter your first name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email">Best Email</label>
+                                <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+                            </div>
+                            <button type="submit" class="btn-submit">Start the Course →</button>
+                        </form>
+                        
+                        <div class="guarantee-box">
+                            <div class="guarantee-title">
+                                <span>🔒</span>
+                                <span>Your Information is 100% Secure</span>
+                            </div>
+                            <p class="guarantee-text">No spam. No sales pitches. Just the course content delivered to your inbox immediately. Unsubscribe anytime.</p>
+                        </div>
+                    </div>
+                    
+                    <div id="successMessage" class="success-message">
+                        <div class="success-icon">🎉</div>
+                        <h2 class="success-title">Check Your Email Right Now!</h2>
+                        <p class="success-text">Module 1 is waiting in your inbox. Make sure to check your spam folder if you don't see it within 2 minutes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            document.getElementById('downloadForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+            // TODO: Connect to email service
+        }
+    </script>
+</body>
+</html>
