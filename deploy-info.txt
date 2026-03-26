@@ -1,0 +1,7 @@
+DEPLOYMENT OPTIONS:
+
+1. SIMPLEST (what I'm doing now): Using GitHub's static file hosting
+2. Your site files are ready at: /Users/aiva/.openclaw/workspace/projects/itsnateyoder.com/site-bundle
+3. I'll create a public GitHub repo and enable Pages
+
+This will give you a live URL in under 2 minutes.
