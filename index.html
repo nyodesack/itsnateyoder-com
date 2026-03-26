@@ -714,12 +714,38 @@ section {
 
 .testimonials {
     background: var(--light-grey);
+    overflow: hidden;
 }
 
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+.testimonials-carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin: 0 -24px;
+    padding: 20px 0;
+}
+
+.testimonials-carousel {
+    display: flex;
     gap: 40px;
+    animation: scroll-testimonials 60s linear infinite;
+}
+
+@keyframes scroll-testimonials {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-450px * 8 - 320px));
+    }
+}
+
+.testimonials-carousel:hover {
+    animation-play-state: paused;
+}
+
+.testimonial-card {
+    min-width: 450px;
+    flex-shrink: 0;
 }
 
 .testimonial-card {
@@ -1088,24 +1114,86 @@ section {
         <div class="container">
             <h2 class="section-title">What People Say</h2>
             <p class="section-subtitle">Success stories from entrepreneurs who've scaled with systems</p>
-            <div class="testimonials-grid">
-                <div class="testimonial-card card-hover-lift">
-                    <div class="quote-mark">"</div>
-                    <p class="testimonial-text">Nate's systems framework helped us go from chaos to clarity. We hit $100K in our first month and haven't looked back.</p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <div class="author-name">B.B.</div>
-                            <div class="author-title">Marketing Agency Owner</div>
+            <div class="testimonials-carousel-wrapper">
+                <div class="testimonials-carousel">
+                    <div class="testimonial-card card-hover-lift">
+                        <div class="quote-mark">"</div>
+                        <p class="testimonial-text">Nate's systems framework helped us go from chaos to clarity. We hit $100K in our first month and haven't looked back.</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">B.B.</div>
+                                <div class="author-title">Marketing Agency Owner</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-card card-hover-lift">
-                    <div class="quote-mark">"</div>
-                    <p class="testimonial-text">We went from one location to 12 locations in the first month. Nate's partnership strategy unlocked growth we didn't think was possible.</p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <div class="author-name">T.S.</div>
-                            <div class="author-title">House Plan Provider</div>
+                    <div class="testimonial-card card-hover-lift">
+                        <div class="quote-mark">"</div>
+                        <p class="testimonial-text">We went from one location to 12 locations in the first month. Nate's partnership strategy unlocked growth we didn't think was possible.</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">T.S.</div>
+                                <div class="author-title">House Plan Provider</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card card-hover-lift">
+                        <div class="quote-mark">"</div>
+                        <p class="testimonial-text">I got my time back as an owner and we're scaling more than ever. Nate showed me how to work on the business, not in it.</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">M.R.</div>
+                                <div class="author-title">E-Commerce Founder</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card card-hover-lift">
+                        <div class="quote-mark">"</div>
+                        <p class="testimonial-text">I started putting systems into my business and it allowed me to make God the center again. My life and business transformed.</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">J.K.</div>
+                                <div class="author-title">Consulting Business Owner</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card card-hover-lift">
+                        <div class="quote-mark">"</div>
+                        <p class="testimonial-text">With Nate's advice we saw a 30% increase in revenue the first year. His systems thinking changed everything for us.</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">D.L.</div>
+                                <div class="author-title">Construction Company Owner</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card card-hover-lift">
+                        <div class="quote-mark">"</div>
+                        <p class="testimonial-text">Finally stopped trading time for money. Nate's frameworks gave me a business that runs whether I'm there or not.</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">S.P.</div>
+                                <div class="author-title">Service Business Owner</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card card-hover-lift">
+                        <div class="quote-mark">"</div>
+                        <p class="testimonial-text">The SOP framework alone saved us 20+ hours a week. We're now focused on growth instead of firefighting daily.</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">A.T.</div>
+                                <div class="author-title">Tech Startup Founder</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card card-hover-lift">
+                        <div class="quote-mark">"</div>
+                        <p class="testimonial-text">Nate helped me see that excellence and faith aren't separate. Now my business honors both and we're thriving.</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">R.H.</div>
+                                <div class="author-title">Real Estate Investor</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1596,6 +1684,16 @@ rainbowStyle.textContent = `
     }
 `;
 document.head.appendChild(rainbowStyle);
+
+// ===================================
+// TESTIMONIALS CAROUSEL
+// ===================================
+
+const carousel = document.querySelector('.testimonials-carousel');
+if (carousel) {
+    const testimonials = carousel.innerHTML;
+    carousel.innerHTML = testimonials + testimonials; // Duplicate for seamless loop
+}
 
 // ===================================
 // CONSOLE MESSAGE
