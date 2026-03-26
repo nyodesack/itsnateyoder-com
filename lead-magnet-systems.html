@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free SOP Framework | Nate Yoder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #1DA1F2;
+    --primary-dark: #1A8CD8;
+    --navy: #1A2332;
+    --charcoal: #2D3748;
+    --white: #FFFFFF;
+    --text-dark: #1F2937;
+    --text-light: #FFFFFF;
+    --text-muted: #6B7280;
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-dark);
+    background: var(--white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 100%);
+    overflow: hidden;
+    padding: 100px 0;
+}
+
+.hero-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(29, 161, 242, 0.1) 0%, 
+        rgba(26, 35, 50, 0.9) 50%,
+        rgba(29, 161, 242, 0.1) 100%
+    );
+    animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(29, 161, 242, 0.2);
+    color: var(--primary);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(29, 161, 242, 0.3);
+}
+
+.hero-title {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text-light);
+    margin-bottom: 24px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 24px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 48px;
+}
+
+.benefits-list {
+    list-style: none;
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto 48px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 0;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 18px;
+}
+
+.benefit-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.form-container {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 48px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 16px;
+    border: 2px solid #E5E7EB;
+    border-radius: 12px;
+    font-family: var(--font-primary);
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(29, 161, 242, 0.1);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 18px 32px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-light);
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(29, 161, 242, 0.4);
+}
+
+.privacy-text {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 16px;
+}
+
+.success-message {
+    display: none;
+    text-align: center;
+    padding: 48px;
+}
+
+.success-icon {
+    font-size: 64px;
+    margin-bottom: 24px;
+}
+
+.success-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+}
+
+.success-text {
+    font-size: 18px;
+    color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 42px;
+    }
+    
+    .form-container {
+        padding: 32px 24px;
+    }
+}
+</style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-gradient"></div>
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-badge">🎁 FREE DOWNLOAD</div>
+                <h1 class="hero-title">The Complete SOP Framework</h1>
+                <p class="hero-subtitle">Build Systems That Run Your Business Without You</p>
+                
+                <ul class="benefits-list">
+                    <li class="benefit-item">
+                        <span class="benefit-icon">✅</span>
+                        <span>Step-by-step process to document every task in your business</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="benefit-icon">✅</span>
+                        <span>Templates for hiring, training, and delegation</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="benefit-icon">✅</span>
+                        <span>Stop being the bottleneck - scale with systems</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="benefit-icon">✅</span>
+                        <span>Get your time back while growing revenue</span>
+                    </li>
+                </ul>
+                
+                <div class="form-container">
+                    <div id="downloadForm">
+                        <h2 class="form-title">Get Instant Access</h2>
+                        <form onsubmit="handleSubmit(event)">
+                            <div class="form-group">
+                                <label class="form-label" for="name">First Name</label>
+                                <input type="text" id="name" class="form-input" placeholder="Enter your first name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address</label>
+                                <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+                            </div>
+                            <button type="submit" class="btn-submit">Download Free Framework →</button>
+                        </form>
+                        <p class="privacy-text">🔒 Your information is 100% secure. No spam, ever.</p>
+                    </div>
+                    
+                    <div id="successMessage" class="success-message">
+                        <div class="success-icon">🎉</div>
+                        <h2 class="success-title">Check Your Email!</h2>
+                        <p class="success-text">Your SOP framework is on its way. Check your inbox in the next few minutes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            document.getElementById('downloadForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

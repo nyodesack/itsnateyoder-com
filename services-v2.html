@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Nate Yoder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #1DA1F2;
+    --primary-dark: #1A8CD8;
+    --navy: #1A2332;
+    --charcoal: #2D3748;
+    --white: #FFFFFF;
+    --light-grey: #F9FAFB;
+    --text-dark: #1F2937;
+    --text-light: #FFFFFF;
+    --text-muted: #6B7280;
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-dark);
+    background: var(--white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Navigation */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    background: rgba(26, 35, 50, 0.95);
+    backdrop-filter: blur(12px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* Service Detail Sections */
+.service-detail {
+    padding: 140px 0 80px;
+    min-height: 100vh;
+}
+
+.service-detail:nth-child(even) {
+    background: var(--light-grey);
+}
+
+.service-header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.service-icon {
+    font-size: 64px;
+    margin-bottom: 24px;
+}
+
+.service-title {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+}
+
+.service-subtitle {
+    font-size: 24px;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.service-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.what-you-get {
+    margin: 48px 0;
+}
+
+.what-you-get h3 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 32px;
+    color: var(--text-dark);
+}
+
+.benefits-list {
+    list-style: none;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    background: var(--white);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.benefit-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+.benefit-text {
+    flex: 1;
+}
+
+.benefit-text strong {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.cta-box {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--text-light);
+    padding: 48px;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 64px;
+}
+
+.cta-box h3 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.cta-box p {
+    font-size: 20px;
+    margin-bottom: 32px;
+    opacity: 0.95;
+}
+
+.btn {
+    display: inline-block;
+    padding: 18px 40px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
+    background: var(--white);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .service-title {
+        font-size: 36px;
+    }
+    
+    .service-subtitle {
+        font-size: 20px;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+}
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">NATE YODER</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services-v2.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Systems & SOPs -->
+    <section id="systems" class="service-detail">
+        <div class="container">
+            <div class="service-header">
+                <div class="service-icon">📋</div>
+                <h1 class="service-title">Systems & SOPs</h1>
+                <p class="service-subtitle">Stop trading time for money. Build a business that runs without you.</p>
+            </div>
+            
+            <div class="service-content">
+                <div class="what-you-get">
+                    <h3>What You Get</h3>
+                    <ul class="benefits-list">
+                        <li class="benefit-item">
+                            <span class="benefit-icon">✅</span>
+                            <div class="benefit-text">
+                                <strong>Complete SOP Framework</strong>
+                                Step-by-step system to document every process in your business so anyone can execute it.
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-icon">✅</span>
+                            <div class="benefit-text">
+                                <strong>Process Mapping</strong>
+                                We map your current operations and identify bottlenecks killing your growth.
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-icon">✅</span>
+                            <div class="benefit-text">
+                                <strong>Delegation Roadmap</strong>
+                                Clear plan to get tasks off your plate and into documented, repeatable systems.
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-icon">✅</span>
+                            <div class="benefit-text">
+                                <strong>Scalable Templates</strong>
+                                Proven templates for hiring, onboarding, operations, and client delivery.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="cta-box">
+                    <h3>Ready to Build Systems That Scale?</h3>
+                    <p>Download the free SOP framework and start documenting your business today.</p>
+                    <a href="lead-magnet-systems.html" class="btn">Get Free SOP Framework →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Partnerships -->
+    <section id="partnerships" class="service-detail">
+        <div class="container">
+            <div class="service-header">
+                <div class="service-icon">🤝</div>
+                <h1 class="service-title">Strategic Partnerships</h1>
+                <p class="service-subtitle">Unlock exponential growth through the right partnerships.</p>
+            </div>
+            
+            <div class="service-content">
+                <div class="what-you-get">
+                    <h3>What You Get</h3>
+                    <ul class="benefits-list">
+                        <li class="benefit-item">
+                            <span class="benefit-icon">✅</span>
+                            <div class="benefit-text">
+                                <strong>Partnership Strategy</strong>
+                                Identify and vet the partnerships that will 10x your reach without 10x-ing your workload.
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-icon">✅</span>
+                            <div class="benefit-text">
+                                <strong>Deal Structure Frameworks</strong>
+                                Win-win agreements that protect your business and accelerate growth.
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-icon">✅</span>
+                            <div class="benefit-text">
+                                <strong>Outreach & Pitch Support</strong>
+                                Messaging templates and scripts to land partnerships with decision-makers.
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-icon">✅</span>
+                            <div class="benefit-text">
+                                <strong>Relationship Management</strong>
+                                Systems to nurture and scale partnerships without dropping the ball.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="cta-box">
+                    <h3>Ready to Unlock Partnership Growth?</h3>
+                    <p>Get the partnership playbook that helped businesses expand to 12+ locations in one month.</p>
+                    <a href="lead-magnet-partnerships.html" class="btn">Get Free Partnership Guide →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Revenue Operations -->
+    <section id="revenue" class="service-detail">
+        <div class="container">
+            <div class="service-header">
+                <div class="service-icon">📈</div>
+                <h1 class="service-title">Revenue Operations</h1>
+                <p class="service-subtitle">Turn chaos into predictable, scalable revenue.</p>
+            </div>
+            
+            <div class="service-content">
+                <div class="what-you-get">
+                    <h3>What You Get</h3>
+                    <ul class="benefits-list">
+                        <li class="benefit-item">
+                            <span class="benefit-icon">✅</span>
+                            <div class="benefit-text">
+                                <strong>Revenue System Audit</strong>
+                                Identify where you're leaving money on the table and what to fix first.
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-icon">✅</span>
+                            <div class="benefit-text">
+                                <strong>Sales Process Optimization</strong>
+                                Streamline your pipeline so leads convert faster and more predictably.
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-icon">✅</span>
+                            <div class="benefit-text">
+                                <strong>Metrics & Dashboards</strong>
+                                Know your numbers in real-time so you can make fast, confident decisions.
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-icon">✅</span>
+                            <div class="benefit-text">
+                                <strong>Growth Frameworks</strong>
+                                Proven playbooks to scale revenue 30%+ year-over-year without burning out.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="cta-box">
+                    <h3>Ready to Scale Revenue Operations?</h3>
+                    <p>Get the revenue ops checklist used by businesses hitting 30%+ growth annually.</p>
+                    <a href="lead-magnet-revenue.html" class="btn">Get Free RevOps Checklist →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
