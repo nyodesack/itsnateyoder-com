@@ -609,6 +609,233 @@ section {
 }
 
 /* ===================================
+   SOP PRODUCT SECTION
+   =================================== */
+.sop-product {
+    background: linear-gradient(180deg, #0b0f1a 0%, #111827 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.sop-product::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(29, 161, 242, 0.16), transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(124, 58, 237, 0.15), transparent 24%),
+        radial-gradient(circle at 70% 78%, rgba(16, 185, 129, 0.1), transparent 22%);
+    pointer-events: none;
+}
+
+.sop-product .container {
+    position: relative;
+    z-index: 1;
+}
+
+.sop-product-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+}
+
+.sop-product-copy .section-title,
+.sop-product-copy .section-subtitle {
+    text-align: left;
+}
+
+.product-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #7dd3fc;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.product-points {
+    list-style: none;
+    margin: 32px 0;
+    display: grid;
+    gap: 14px;
+}
+
+.product-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.7;
+}
+
+.product-points li::before {
+    content: '✦';
+    color: var(--primary);
+    font-weight: 800;
+    margin-top: 1px;
+}
+
+.product-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.product-visual {
+    position: relative;
+    min-height: 520px;
+}
+
+.product-device {
+    position: absolute;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.34);
+    overflow: hidden;
+}
+
+.product-device-main {
+    width: 78%;
+    right: 0;
+    top: 0;
+    background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+}
+
+.product-device-book {
+    width: 40%;
+    left: 0;
+    bottom: 18px;
+    background: linear-gradient(180deg, #172033 0%, #0f172a 100%);
+    transform: rotate(-8deg);
+}
+
+.device-topbar {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    gap: 8px;
+}
+
+.device-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+}
+
+.device-content {
+    padding: 26px;
+}
+
+.device-label {
+    color: #7dd3fc;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.device-title {
+    color: var(--white);
+    font-size: 2rem;
+    line-height: 1.05;
+    margin-bottom: 16px;
+}
+
+.device-text {
+    color: rgba(255,255,255,0.72);
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+.device-mini-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.device-mini-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 14px;
+}
+
+.device-mini-card strong {
+    display: block;
+    color: var(--white);
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+}
+
+.device-mini-card span {
+    color: rgba(255,255,255,0.68);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.product-badge {
+    position: absolute;
+    left: 8%;
+    top: 52px;
+    background: linear-gradient(135deg, rgba(29,161,242,0.96), rgba(124,58,237,0.9));
+    color: var(--white);
+    padding: 14px 18px;
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(29,161,242,0.22);
+    font-weight: 700;
+    max-width: 240px;
+}
+
+.product-badge small {
+    display: block;
+    opacity: 0.8;
+    font-size: 0.78rem;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+@media (max-width: 980px) {
+    .sop-product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-visual {
+        min-height: 460px;
+    }
+}
+
+@media (max-width: 640px) {
+    .product-visual {
+        min-height: 380px;
+    }
+
+    .product-device-main {
+        width: 100%;
+        position: relative;
+    }
+
+    .product-device-book,
+    .product-badge {
+        display: none;
+    }
+
+    .device-title {
+        font-size: 1.6rem;
+    }
+}
+
+/* ===================================
    SERVICES SECTION
    =================================== */
 
@@ -1092,6 +1319,71 @@ section {
                     <div class="result-label">Systems & Workflows Improved</div>
                     <div class="result-company">Built for clarity and execution</div>
                     <p class="result-description">Designed practical systems, operating workflows, and growth structure that help businesses move faster without creating more internal chaos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOP Product Section -->
+    <section class="sop-product section-animate">
+        <div class="container sop-product-grid">
+            <div class="sop-product-copy">
+                <div class="product-kicker">Featured Digital Product</div>
+                <h2 class="section-title light">The SOP Framework that helps messy businesses operate like real companies.</h2>
+                <p class="section-subtitle light">Not just a free button in the hero. This is the practical framework I use to help founders document processes, clean up execution, and build operations that can actually scale.</p>
+                <ul class="product-points">
+                    <li>Clarify the core workflows your business depends on before they keep living only in your head.</li>
+                    <li>Train faster, delegate better, and create more consistency across sales, fulfillment, and follow-up.</li>
+                    <li>Turn chaos into repeatable structure without making your company feel stiff or overbuilt.</li>
+                </ul>
+                <div class="product-actions">
+                    <a href="lead-magnet-systems.html" class="btn btn-primary btn-glow">
+                        <span class="btn-text">Explore the SOP Framework</span>
+                        <span class="btn-shine"></span>
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary btn-hover-lift">
+                        <span class="btn-text">Use It With Me</span>
+                    </a>
+                </div>
+            </div>
+            <div class="product-visual">
+                <div class="product-badge">Founder Favorite<small>Built to make delegation and scale less painful</small></div>
+                <div class="product-device product-device-main">
+                    <div class="device-topbar">
+                        <span class="device-dot"></span>
+                        <span class="device-dot"></span>
+                        <span class="device-dot"></span>
+                    </div>
+                    <div class="device-content">
+                        <div class="device-label">Digital Framework</div>
+                        <div class="device-title">SOP Framework</div>
+                        <p class="device-text">A cleaner way to organize how work gets done so your business can grow without every answer running through you.</p>
+                        <div class="device-mini-grid">
+                            <div class="device-mini-card">
+                                <strong>Core Playbooks</strong>
+                                <span>Map the tasks and workflows that keep the business moving.</span>
+                            </div>
+                            <div class="device-mini-card">
+                                <strong>Delegation Ready</strong>
+                                <span>Make handoffs easier for hires, contractors, and team leads.</span>
+                            </div>
+                            <div class="device-mini-card">
+                                <strong>Scale Cleaner</strong>
+                                <span>Reduce dropped details and internal confusion as you grow.</span>
+                            </div>
+                            <div class="device-mini-card">
+                                <strong>Actionable</strong>
+                                <span>Built to be used, not just downloaded and forgotten.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-device product-device-book">
+                    <div class="device-content">
+                        <div class="device-label">Framework Preview</div>
+                        <div class="device-title">Document. Delegate. Scale.</div>
+                        <p class="device-text">A practical operations asset designed for founders who are tired of growth feeling improvised.</p>
+                    </div>
                 </div>
             </div>
         </div>
