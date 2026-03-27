@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | Nate Yoder</title>
+    <meta name="description" content="Systems, partnerships, revenue operations, and growth strategy to help your business scale with clarity.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
+<style>
+/* ===================================
+   RESET & BASE STYLES
+   =================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -13,20 +20,43 @@
 }
 
 :root {
+    /* Bluebird Blue Palette */
     --primary: #1DA1F2;
     --primary-dark: #1A8CD8;
+    --primary-light: #4AB3F4;
+    --primary-glow: rgba(29, 161, 242, 0.4);
+    
+    /* Dark Backgrounds (Erik Rock Style) */
     --navy: #1A2332;
     --charcoal: #2D3748;
+    --dark-overlay: rgba(26, 35, 50, 0.95);
+    
+    /* Light Backgrounds */
     --white: #FFFFFF;
     --light-grey: #F9FAFB;
+    --grey: #E5E7EB;
+    
+    /* Text Colors */
     --text-dark: #1F2937;
     --text-light: #FFFFFF;
     --text-muted: #6B7280;
+    
+    /* Typography */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    
+    /* Spacing */
+    --container-width: 1200px;
+    --section-padding: 120px 0;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -35,15 +65,19 @@ body {
     line-height: 1.7;
     color: var(--text-dark);
     background: var(--white);
+    overflow-x: hidden;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 24px;
 }
 
-/* Navigation */
+/* ===================================
+   NAVIGATION WITH SCROLL EFFECTS
+   =================================== */
+
 .nav {
     position: fixed;
     top: 0;
@@ -51,8 +85,15 @@ body {
     right: 0;
     z-index: 1000;
     padding: 20px 0;
+    transition: all var(--transition-smooth);
+    background: transparent;
+}
+
+.nav.scrolled {
     background: rgba(26, 35, 50, 0.95);
     backdrop-filter: blur(12px);
+    padding: 12px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
@@ -63,168 +104,989 @@ body {
 
 .logo {
     font-size: 24px;
-    font-weight: 900;
-    color: var(--text-light);
-    text-decoration: none;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.5px;
 }
 
 .nav-links {
     display: flex;
     gap: 32px;
     list-style: none;
+    align-items: center;
 }
 
 .nav-links a {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--white);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    font-size: 16px;
+    transition: all var(--transition-fast);
+    position: relative;
 }
 
-.nav-links a:hover {
-    color: var(--primary);
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width var(--transition-smooth);
 }
 
-/* Service Detail Sections */
-.service-detail {
-    padding: 140px 0 80px;
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.btn-nav {
+    background: var(--primary);
+    padding: 10px 24px;
+    border-radius: 8px;
+    transition: all var(--transition-smooth);
+}
+
+.btn-nav::after {
+    display: none;
+}
+
+.btn-nav:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--primary-glow);
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.mobile-menu-toggle span {
+    width: 28px;
+    height: 3px;
+    background: var(--white);
+    border-radius: 3px;
+    transition: all var(--transition-smooth);
+}
+
+/* ===================================
+   HERO SECTION WITH VIDEO
+   =================================== */
+
+.hero {
+    position: relative;
     min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 120px 0 80px;
 }
 
-.service-detail:nth-child(even) {
-    background: var(--light-grey);
+/* Animated Gradient Background */
+.hero-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        var(--navy) 0%, 
+        #2A3F5F 25%,
+        var(--primary-dark) 50%,
+        #2A3F5F 75%,
+        var(--navy) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    z-index: 1;
 }
 
-.service-header {
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Hero Video Container */
+.hero-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 120%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%);
+    object-fit: cover;
+    object-position: center 20%;
+    opacity: 0.6;
+}
+
+.hero-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(26, 35, 50, 0.85) 0%,
+        rgba(29, 161, 242, 0.15) 50%,
+        rgba(26, 35, 50, 0.85) 100%
+    );
+}
+
+/* Hero Content */
+.hero-container {
+    position: relative;
+    z-index: 3;
     text-align: center;
-    margin-bottom: 64px;
 }
 
-.service-icon {
-    font-size: 64px;
-    margin-bottom: 24px;
-}
-
-.service-title {
-    font-size: 48px;
-    font-weight: 900;
-    color: var(--text-dark);
-    margin-bottom: 16px;
-}
-
-.service-subtitle {
-    font-size: 24px;
-    color: var(--text-muted);
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.service-content {
+.hero-content {
     max-width: 900px;
     margin: 0 auto;
 }
 
-.what-you-get {
-    margin: 48px 0;
+/* Animated Hero Title */
+.hero-title {
+    font-size: clamp(48px, 8vw, 80px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 32px;
+    color: var(--white);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.what-you-get h3 {
-    font-size: 32px;
+.title-line {
+    display: block;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.title-accent {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Animation Classes */
+.animate-title .title-line:nth-child(1) {
+    animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+}
+
+.animate-title .title-line:nth-child(2) {
+    animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+}
+
+@keyframes slideInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-subtitle {
+    font-size: clamp(18px, 2.5vw, 22px);
+    line-height: 1.7;
+    color: var(--light-grey);
+    margin-bottom: 48px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.animate-subtitle {
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero Stats */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 48px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.animate-stats {
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 48px;
     font-weight: 800;
-    margin-bottom: 32px;
+    color: var(--primary);
+    text-shadow: 0 0 30px var(--primary-glow);
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--light-grey);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-divider {
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+}
+
+/* Hero CTA Buttons */
+.hero-cta {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.animate-cta {
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1s forwards;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    animation: bounce 2s infinite;
+}
+
+.scroll-arrow {
+    width: 30px;
+    height: 50px;
+    border: 2px solid var(--primary);
+    border-radius: 20px;
+    position: relative;
+}
+
+.scroll-arrow::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: scrollDot 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+@keyframes scrollDot {
+    0% { opacity: 1; top: 10px; }
+    100% { opacity: 0; top: 30px; }
+}
+
+/* ===================================
+   BUTTONS WITH ADVANCED EFFECTS
+   =================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 40px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all var(--transition-smooth);
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-primary);
+}
+
+.btn-text {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+/* Glow Effect */
+.btn-glow {
+    box-shadow: 0 0 0 var(--primary-glow);
+}
+
+.btn-glow:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px var(--primary-glow);
+}
+
+/* Shine Effect */
+.btn-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.3), 
+        transparent
+    );
+    transition: left 0.6s;
+}
+
+.btn-glow:hover .btn-shine {
+    left: 100%;
+}
+
+/* Hover Lift Effect */
+.btn-hover-lift:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-large {
+    padding: 20px 50px;
+    font-size: 20px;
+}
+
+/* ===================================
+   SECTION STYLES
+   =================================== */
+
+section {
+    padding: var(--section-padding);
+    position: relative;
+}
+
+.section-title {
+    font-size: clamp(40px, 6vw, 60px);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 16px;
     color: var(--text-dark);
 }
 
-.benefits-list {
+.section-title.light {
+    color: var(--white);
+}
+
+.section-subtitle {
+    font-size: 20px;
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 64px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-subtitle.light {
+    color: var(--light-grey);
+}
+
+/* Section Fade-In Animation */
+.section-animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===================================
+   RESULTS SECTION
+   =================================== */
+
+.results {
+    background: var(--light-grey);
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.result-card {
+    background: var(--white);
+    padding: 48px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all var(--transition-smooth);
+}
+
+.result-icon {
+    font-size: 56px;
+    margin-bottom: 24px;
+}
+
+.result-number {
+    font-size: 72px;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 12px;
+    line-height: 1;
+}
+
+.result-label {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.result-company {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 16px;
+}
+
+.result-description {
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* Card Hover Effects */
+.card-hover-lift {
+    transition: all var(--transition-smooth);
+}
+
+.card-hover-lift:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(29, 161, 242, 0.15);
+}
+
+/* ===================================
+   SERVICES SECTION
+   =================================== */
+
+.services {
+    position: relative;
+    overflow: hidden;
+}
+
+.services-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        var(--navy) 0%, 
+        var(--charcoal) 50%,
+        var(--navy) 100%
+    );
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+}
+
+.services .container {
+    position: relative;
+    z-index: 2;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-smooth);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: var(--white);
+    transition: all var(--transition-smooth);
+}
+
+.service-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+.service-description {
+    color: var(--light-grey);
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.service-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all var(--transition-fast);
+}
+
+.service-link:hover {
+    gap: 12px;
+}
+
+/* Card Glow Effect */
+.card-hover-glow {
+    transition: all var(--transition-smooth);
+}
+
+.card-hover-glow:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(29, 161, 242, 0.3);
+    border-color: var(--primary);
+}
+
+.card-hover-glow:hover .service-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 30px var(--primary-glow);
+}
+
+/* ===================================
+   TESTIMONIALS SECTION
+   =================================== */
+
+.testimonials {
+    background: var(--light-grey);
+    overflow: hidden;
+}
+
+/* Who I Help contrast fix */
+.testimonials .service-card {
+    background: var(--white);
+    border: 1px solid rgba(29, 161, 242, 0.14);
+    box-shadow: 0 14px 40px rgba(26, 35, 50, 0.08);
+    backdrop-filter: none;
+}
+
+.testimonials .service-title {
+    color: var(--text-dark);
+}
+
+.testimonials .service-description {
+    color: var(--text-muted);
+}
+
+.testimonials .service-icon {
+    box-shadow: 0 10px 24px rgba(29, 161, 242, 0.22);
+}
+
+.testimonials .card-hover-glow:hover {
+    box-shadow: 0 22px 50px rgba(29, 161, 242, 0.18);
+}
+
+.testimonials-carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin: 0 -24px;
+    padding: 20px 0;
+}
+
+.testimonials-carousel {
+    display: flex;
+    gap: 40px;
+    animation: scroll-testimonials 60s linear infinite;
+}
+
+@keyframes scroll-testimonials {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-450px * 8 - 320px));
+    }
+}
+
+.testimonials-carousel:hover {
+    animation-play-state: paused;
+}
+
+.testimonial-card {
+    min-width: 450px;
+    max-width: 450px;
+    min-height: 450px;
+    flex-shrink: 0;
+    background: var(--white);
+    padding: 48px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Alternating colors: blue and grey */
+.testimonial-card:nth-child(odd) {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+}
+
+.testimonial-card:nth-child(odd) .testimonial-text,
+.testimonial-card:nth-child(odd) .author-name,
+.testimonial-card:nth-child(odd) .author-title {
+    color: var(--text-light);
+}
+
+.testimonial-card:nth-child(odd) .quote-mark {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.testimonial-card:nth-child(even) {
+    background: var(--light-grey);
+}
+
+.quote-mark {
+    font-size: 80px;
+    font-weight: 900;
+    color: var(--primary);
+    opacity: 0.2;
+    line-height: 1;
+    margin-bottom: 16px;
+}
+
+.testimonial-text {
+    font-size: 20px;
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin-bottom: 32px;
+}
+
+.author-name {
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.author-title {
+    color: var(--text-muted);
+    font-size: 16px;
+}
+
+/* ===================================
+   CTA SECTION
+   =================================== */
+
+.cta-section {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.cta-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        var(--primary-dark) 0%, 
+        var(--primary) 50%,
+        var(--primary-dark) 100%
+    );
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+}
+
+.cta-container {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-title {
+    font-size: clamp(40px, 6vw, 60px);
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+.cta-subtitle {
+    font-size: 22px;
+    color: var(--light-grey);
+    margin-bottom: 48px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+
+.footer {
+    background: var(--navy);
+    color: var(--light-grey);
+    padding: 80px 0 32px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.footer-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+.footer-text {
+    color: var(--light-grey);
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.footer-heading {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.footer-links {
     list-style: none;
 }
 
-.benefit-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 20px;
-    background: var(--white);
-    border-radius: 12px;
-    margin-bottom: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+.footer-links li {
+    margin-bottom: 12px;
 }
 
-.benefit-icon {
-    font-size: 28px;
-    flex-shrink: 0;
-}
-
-.benefit-text {
-    flex: 1;
-}
-
-.benefit-text strong {
-    display: block;
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: var(--text-dark);
-}
-
-.cta-box {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: var(--text-light);
-    padding: 48px;
-    border-radius: 20px;
-    text-align: center;
-    margin-top: 64px;
-}
-
-.cta-box h3 {
-    font-size: 32px;
-    font-weight: 800;
-    margin-bottom: 16px;
-}
-
-.cta-box p {
-    font-size: 20px;
-    margin-bottom: 32px;
-    opacity: 0.95;
-}
-
-.btn {
-    display: inline-block;
-    padding: 18px 40px;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--primary);
-    background: var(--white);
-    border-radius: 12px;
+.footer-links a {
+    color: var(--light-grey);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all var(--transition-fast);
 }
 
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+.footer-links a:hover {
+    color: var(--primary);
+    padding-left: 4px;
+}
+
+.footer-bottom {
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: var(--text-muted);
+}
+
+/* ===================================
+   COUNTER ANIMATION
+   =================================== */
+
+.counter {
+    display: inline-block;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 968px) {
+    .hero-stats {
+        flex-direction: column;
+        gap: 32px;
+    }
+    
+    .stat-divider {
+        width: 60px;
+        height: 2px;
+    }
+    
+    .services-grid,
+    .results-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
 }
 
 @media (max-width: 768px) {
-    .service-title {
-        font-size: 36px;
-    }
-    
-    .service-subtitle {
-        font-size: 20px;
-    }
-    
     .nav-links {
         display: none;
     }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .hero {
+        padding: 140px 0 60px;
+    }
+    
+    section {
+        padding: 80px 0;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
 }
-</style>
+    </style>
+    <style>
+        .page-hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(180deg, rgba(11, 15, 26, 0.96) 0%, #0b0f1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(29,161,242,0.18), transparent 35%),
+                radial-gradient(circle at 80% 30%, rgba(124,58,237,0.18), transparent 35%),
+                radial-gradient(circle at 50% 80%, rgba(16,185,129,0.12), transparent 35%);
+            pointer-events: none;
+        }
+        .page-hero .container { position: relative; z-index: 1; }
+        .page-kicker {
+            display: inline-block;
+            padding: 10px 18px;
+            border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.05);
+            color: #7dd3fc;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        .page-hero h1 {
+            font-size: clamp(3rem, 7vw, 5.6rem);
+            line-height: 0.95;
+            margin-bottom: 24px;
+            max-width: 920px;
+        }
+        .page-hero p {
+            max-width: 760px;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.78);
+            line-height: 1.7;
+        }
+        .service-sections { padding: 100px 0; background: #050816; }
+        .service-stack { display: grid; gap: 32px; }
+        .service-panel {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 28px;
+            padding: 42px;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.28);
+        }
+        .service-panel h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 14px; }
+        .service-panel > p { color: rgba(255,255,255,0.72); font-size: 1.08rem; margin-bottom: 30px; }
+        .service-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+        .service-item {
+            background: rgba(12, 18, 32, 0.92);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 20px;
+            padding: 22px;
+        }
+        .service-item strong { display: block; margin-bottom: 10px; font-size: 1.05rem; color: #fff; }
+        .service-item span { color: rgba(255,255,255,0.7); line-height: 1.7; }
+        .service-cta {
+            margin-top: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 24px 28px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, rgba(29,161,242,0.18), rgba(124,58,237,0.16));
+            border: 1px solid rgba(125,211,252,0.18);
+        }
+        .service-cta p { margin: 0; color: rgba(255,255,255,0.82); }
+        @media (max-width: 900px) {
+            .service-grid { grid-template-columns: 1fr; }
+            .service-cta { flex-direction: column; align-items: flex-start; }
+            .service-panel { padding: 28px; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav" id="mainNav">
+<nav class="nav" id="mainNav">
         <div class="container nav-container">
-            <a href="index.html" class="logo">Nate Yoder</a>
+            <div class="logo">Nate Yoder</div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -240,164 +1102,115 @@ body {
             </button>
         </div>
     </nav>
-
-    <!-- Systems & SOPs -->
-    <section id="systems" class="service-detail">
-        <div class="container">
-            <div class="service-header">
-                <div class="service-icon">📋</div>
-                <h1 class="service-title">Systems & SOPs</h1>
-                <p class="service-subtitle">Stop trading time for money. Build a business that runs without you.</p>
+<section class="page-hero">
+    <div class="container">
+        <div class="page-kicker">What I Help With</div>
+        <h1>Services built to help you scale without chaos.</h1>
+        <p>I help businesses tighten operations, build better systems, create strategic partnerships, and fix the revenue bottlenecks that keep growth messy. Same goal every time: more clarity, better execution, and a business that can actually handle momentum.</p>
+    </div>
+</section>
+<section class="service-sections">
+    <div class="container service-stack">
+        <div class="service-panel reveal">
+            <h2>Systems & SOPs</h2>
+            <p>Document the work, remove guesswork, and build repeatable operating systems your team can actually follow.</p>
+            <div class="service-grid">
+                <div class="service-item"><strong>Process Mapping</strong><span>Turn tribal knowledge into clear operating flows your team can execute without constant hand-holding.</span></div>
+                <div class="service-item"><strong>SOP Creation</strong><span>Create usable step-by-step documentation that supports hiring, delegation, and consistent delivery.</span></div>
+                <div class="service-item"><strong>Workflow Cleanup</strong><span>Find the places where work stalls, gets duplicated, or falls through and fix them with cleaner structure.</span></div>
+                <div class="service-item"><strong>Scale Readiness</strong><span>Build a business that can grow without every answer living in your head.</span></div>
             </div>
-            
-            <div class="service-content">
-                <div class="what-you-get">
-                    <h3>What You Get</h3>
-                    <ul class="benefits-list">
-                        <li class="benefit-item">
-                            <span class="benefit-icon">✅</span>
-                            <div class="benefit-text">
-                                <strong>Complete SOP Framework</strong>
-                                Step-by-step system to document every process in your business so anyone can execute it.
-                            </div>
-                        </li>
-                        <li class="benefit-item">
-                            <span class="benefit-icon">✅</span>
-                            <div class="benefit-text">
-                                <strong>Process Mapping</strong>
-                                We map your current operations and identify bottlenecks killing your growth.
-                            </div>
-                        </li>
-                        <li class="benefit-item">
-                            <span class="benefit-icon">✅</span>
-                            <div class="benefit-text">
-                                <strong>Delegation Roadmap</strong>
-                                Clear plan to get tasks off your plate and into documented, repeatable systems.
-                            </div>
-                        </li>
-                        <li class="benefit-item">
-                            <span class="benefit-icon">✅</span>
-                            <div class="benefit-text">
-                                <strong>Scalable Templates</strong>
-                                Proven templates for hiring, onboarding, operations, and client delivery.
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="cta-box">
-                    <h3>Ready to Build Systems That Scale?</h3>
-                    <p>Download the free SOP framework and start documenting your business today.</p>
-                    <a href="lead-magnet-systems.html" class="btn">Get Free SOP Framework →</a>
-                </div>
+            <div class="service-cta">
+                <p>Best for founders who are tired of being the bottleneck inside their own company.</p>
+                <a href="contact.html" class="btn btn-primary">Talk About Systems</a>
             </div>
         </div>
-    </section>
-
-    <!-- Strategic Partnerships -->
-    <section id="partnerships" class="service-detail">
-        <div class="container">
-            <div class="service-header">
-                <div class="service-icon">🤝</div>
-                <h1 class="service-title">Strategic Partnerships</h1>
-                <p class="service-subtitle">Unlock exponential growth through the right partnerships.</p>
+        <div class="service-panel reveal">
+            <h2>Strategic Partnerships</h2>
+            <p>Create partnerships that expand trust, reach, and revenue without relying only on paid ads or cold outreach.</p>
+            <div class="service-grid">
+                <div class="service-item"><strong>Partner Identification</strong><span>Find aligned businesses, communities, and channels that can unlock meaningful growth.</span></div>
+                <div class="service-item"><strong>Offer Structuring</strong><span>Build win-win partnership angles that make sense financially and strategically for both sides.</span></div>
+                <div class="service-item"><strong>Pitch Support</strong><span>Sharpen your positioning, outreach, and follow-up so conversations actually move forward.</span></div>
+                <div class="service-item"><strong>Relationship Systems</strong><span>Put a simple management structure in place so partnerships scale instead of becoming messy.</span></div>
             </div>
-            
-            <div class="service-content">
-                <div class="what-you-get">
-                    <h3>What You Get</h3>
-                    <ul class="benefits-list">
-                        <li class="benefit-item">
-                            <span class="benefit-icon">✅</span>
-                            <div class="benefit-text">
-                                <strong>Partnership Strategy</strong>
-                                Identify and vet the partnerships that will 10x your reach without 10x-ing your workload.
-                            </div>
-                        </li>
-                        <li class="benefit-item">
-                            <span class="benefit-icon">✅</span>
-                            <div class="benefit-text">
-                                <strong>Deal Structure Frameworks</strong>
-                                Win-win agreements that protect your business and accelerate growth.
-                            </div>
-                        </li>
-                        <li class="benefit-item">
-                            <span class="benefit-icon">✅</span>
-                            <div class="benefit-text">
-                                <strong>Outreach & Pitch Support</strong>
-                                Messaging templates and scripts to land partnerships with decision-makers.
-                            </div>
-                        </li>
-                        <li class="benefit-item">
-                            <span class="benefit-icon">✅</span>
-                            <div class="benefit-text">
-                                <strong>Relationship Management</strong>
-                                Systems to nurture and scale partnerships without dropping the ball.
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="cta-box">
-                    <h3>Ready to Unlock Partnership Growth?</h3>
-                    <p>Get the partnership playbook that helped businesses expand to 12+ locations in one month.</p>
-                    <a href="lead-magnet-partnerships.html" class="btn">Get Free Partnership Guide →</a>
-                </div>
+            <div class="service-cta">
+                <p>Best for brands that want leverage, not just more scattered marketing activity.</p>
+                <a href="contact.html" class="btn btn-primary">Build Partnerships</a>
             </div>
         </div>
-    </section>
-
-    <!-- Revenue Operations -->
-    <section id="revenue" class="service-detail">
-        <div class="container">
-            <div class="service-header">
-                <div class="service-icon">📈</div>
-                <h1 class="service-title">Revenue Operations</h1>
-                <p class="service-subtitle">Turn chaos into predictable, scalable revenue.</p>
+        <div class="service-panel reveal">
+            <h2>Revenue Operations</h2>
+            <p>Fix the handoff between marketing, sales, fulfillment, and follow-up so growth doesn’t leak out between departments.</p>
+            <div class="service-grid">
+                <div class="service-item"><strong>Lead Flow Audits</strong><span>See where leads are slowing down, being mishandled, or dying before they turn into revenue.</span></div>
+                <div class="service-item"><strong>Pipeline Cleanup</strong><span>Create clearer stages, ownership, and follow-up expectations so nothing important gets lost.</span></div>
+                <div class="service-item"><strong>Sales Process Support</strong><span>Tighten the path from inbound interest to booked call, estimate, proposal, or close.</span></div>
+                <div class="service-item"><strong>Reporting That Matters</strong><span>Focus on the numbers that actually help you make better decisions, not vanity dashboards.</span></div>
             </div>
-            
-            <div class="service-content">
-                <div class="what-you-get">
-                    <h3>What You Get</h3>
-                    <ul class="benefits-list">
-                        <li class="benefit-item">
-                            <span class="benefit-icon">✅</span>
-                            <div class="benefit-text">
-                                <strong>Revenue System Audit</strong>
-                                Identify where you're leaving money on the table and what to fix first.
-                            </div>
-                        </li>
-                        <li class="benefit-item">
-                            <span class="benefit-icon">✅</span>
-                            <div class="benefit-text">
-                                <strong>Sales Process Optimization</strong>
-                                Streamline your pipeline so leads convert faster and more predictably.
-                            </div>
-                        </li>
-                        <li class="benefit-item">
-                            <span class="benefit-icon">✅</span>
-                            <div class="benefit-text">
-                                <strong>Metrics & Dashboards</strong>
-                                Know your numbers in real-time so you can make fast, confident decisions.
-                            </div>
-                        </li>
-                        <li class="benefit-item">
-                            <span class="benefit-icon">✅</span>
-                            <div class="benefit-text">
-                                <strong>Growth Frameworks</strong>
-                                Proven playbooks to scale revenue 30%+ year-over-year without burning out.
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="cta-box">
-                    <h3>Ready to Scale Revenue Operations?</h3>
-                    <p>Get the revenue ops checklist used by businesses hitting 30%+ growth annually.</p>
-                    <a href="lead-magnet-revenue.html" class="btn">Get Free RevOps Checklist →</a>
-                </div>
+            <div class="service-cta">
+                <p>Best for companies doing enough volume that weak handoffs are quietly costing real money.</p>
+                <a href="contact.html" class="btn btn-primary">Fix Revenue Flow</a>
             </div>
         </div>
-    </section>
+        <div class="service-panel reveal">
+            <h2>Growth Strategy</h2>
+            <p>Connect brand, offer, website, follow-up, and internal execution into one strategy that can actually compound.</p>
+            <div class="service-grid">
+                <div class="service-item"><strong>Positioning</strong><span>Clarify what you do, who it’s for, and why someone should choose you over every other option.</span></div>
+                <div class="service-item"><strong>Offer Development</strong><span>Shape services and packages that are easier to buy, easier to explain, and easier to deliver well.</span></div>
+                <div class="service-item"><strong>Website Strategy</strong><span>Make sure your site supports trust, conversions, and next-step clarity instead of acting like a brochure.</span></div>
+                <div class="service-item"><strong>Execution Roadmaps</strong><span>Turn broad ambitions into a practical plan with real priorities and realistic sequencing.</span></div>
+            </div>
+            <div class="service-cta">
+                <p>Best for founders who know they can grow faster, but need the right structure behind the push.</p>
+                <a href="contact.html" class="btn btn-primary">Map the Strategy</a>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title">Nate Yoder</h3>
+                    <p class="footer-text">Business Growth Expert & Systems Consultant</p>
+                    <p class="footer-text">Helping entrepreneurs scale from local to national</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services-v2.html">Services</a></li>
+                        <li><a href="speaking.html">Speaking</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="lead-magnet-systems.html">Free SOP Framework</a></li>
+                        <li><a href="contact.html">Book Consultation</a></li>
+                        <li><a href="blog.html">Latest Articles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:nate@conversionmarketingpros.com">Email</a></li>
+                        <li><a href="https://twitter.com/thenateyoder" target="_blank">Twitter</a></li>
+                        <li><a href="https://linkedin.com/in/nateyoder" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Nate Yoder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="script-v2.js"></script>
+
 </body>
 </html>
