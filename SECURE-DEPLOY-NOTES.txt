@@ -1,0 +1,38 @@
+itsnateyoder.com secure browsing fix
+==================================
+
+What was wrong
+--------------
+The live https://www.itsnateyoder.com certificate mismatch strongly indicates the domain is currently pointing at GitHub Pages while the certificate/host mapping is not configured correctly for this custom domain.
+
+The project bundle also had CNAME set to:
+itsnateyoder.com
+
+I changed it to:
+www.itsnateyoder.com
+
+Files updated locally
+---------------------
+- site-bundle/index.html
+- site-bundle/CNAME
+
+Recommended fastest secure fix (GitHub Pages path)
+--------------------------------------------------
+1. In the GitHub Pages repo, deploy the updated contents of site-bundle/
+2. Ensure the custom domain in GitHub Pages settings is set to:
+   www.itsnateyoder.com
+3. In Namecheap DNS:
+   - CNAME record: host = www, value = <your-github-pages-host>.github.io
+   - URL redirect or ALIAS/root forwarding: @ -> https://www.itsnateyoder.com
+4. In GitHub Pages settings, enable HTTPS / Enforce HTTPS once the cert is issued.
+
+Alternative secure fix (Netlify path)
+-------------------------------------
+If you want to use Netlify instead, connect site-bundle/ as the publish directory and set custom domains:
+- www.itsnateyoder.com as primary
+- itsnateyoder.com redirecting to www
+Then point Namecheap DNS to Netlify instead of GitHub Pages.
+
+Important
+---------
+Do not point www to GitHub Pages unless that exact hostname is configured in the GitHub Pages repo settings, or you'll keep getting certificate mismatch errors.
