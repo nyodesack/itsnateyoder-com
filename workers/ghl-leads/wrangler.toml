@@ -1,0 +1,8 @@
+name = "itsnateyoder-ghl-leads"
+main = "src/index.js"
+compatibility_date = "2026-04-02"
+workers_dev = true
+
+[vars]
+ALLOWED_ORIGIN = "https://www.itsnateyoder.com"
+DOWNLOAD_BASE_URL = "https://www.itsnateyoder.com/downloads"

@@ -266,7 +266,7 @@ body {
                 <div class="form-container">
                     <div id="downloadForm">
                         <h2 class="form-title">Get Instant Access</h2>
-                        <form onsubmit="handleSubmit(event)">
+                        <form onsubmit="handleLeadMagnetSubmit(event)" data-webhook-url="https://itsnateyoder-ghl-leads.YOUR-SUBDOMAIN.workers.dev" data-download-url="/downloads/business-systems-guide.pdf" data-lead-magnet="Business Systems Guide">
                             <div class="form-group">
                                 <label class="form-label" for="name">First Name</label>
                                 <input type="text" id="name" class="form-input" placeholder="Enter your first name" required>
@@ -282,20 +282,17 @@ body {
                     
                     <div id="successMessage" class="success-message">
                         <div class="success-icon">🎉</div>
-                        <h2 class="success-title">Check Your Email!</h2>
-                        <p class="success-text">Your SOP framework is on its way. Check your inbox in the next few minutes.</p>
+                        <h2 class="success-title">Your Download Is Starting!</h2>
+                        <p class="success-text">We saved your info and your download should begin automatically. If it doesn't, use the direct download link below once your assets are in place.</p>
+                    
+                        <p class="privacy-text"><a href="/downloads/business-systems-guide.pdf" target="_blank" rel="noopener">Direct download link</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <script>
-        function handleSubmit(event) {
-            event.preventDefault();
-            document.getElementById('downloadForm').style.display = 'none';
-            document.getElementById('successMessage').style.display = 'block';
-        }
-    </script>
+    
+    <script src="/js/lead-magnet.js"></script>
 </body>
 </html>
