@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOP Framework | Nate Yoder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #1DA1F2;
+            --primary-dark: #1A8CD8;
+            --navy: #1A2332;
+            --charcoal: #2D3748;
+            --white: #FFFFFF;
+            --text-dark: #1F2937;
+            --text-muted: #6B7280;
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        body {
+            font-family: var(--font-primary);
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 100%);
+            min-height: 100vh;
+        }
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+        .hero {
+            text-align: center;
+            color: white;
+            margin-bottom: 36px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: rgba(29,161,242,0.18);
+            border: 1px solid rgba(29,161,242,0.35);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        h1 {
+            font-size: clamp(2.2rem, 4vw, 4rem);
+            line-height: 1.05;
+            margin-bottom: 14px;
+        }
+        .sub {
+            max-width: 760px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,.84);
+        }
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 28px 0 0;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            transition: .2s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 16px 36px rgba(29,161,242,.28);
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.14);
+            color: white;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .card {
+            background: rgba(255,255,255,.98);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 25px 60px rgba(0,0,0,.25);
+        }
+        .preview {
+            width: 100%;
+            border-radius: 18px;
+            display: block;
+            background: white;
+            border: 1px solid #E5E7EB;
+        }
+        .meta {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 18px;
+        }
+        .meta-card {
+            background: #F8FAFC;
+            border: 1px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 16px;
+        }
+        .meta-card strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: .95rem;
+        }
+        .meta-card span {
+            color: var(--text-muted);
+            line-height: 1.5;
+            font-size: .95rem;
+        }
+        @media (max-width: 800px) {
+            .meta { grid-template-columns: 1fr; }
+            .wrap { padding-top: 32px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="hero">
+            <div class="badge">SOP Framework Access</div>
+            <h1>Your SOP Framework Is Ready</h1>
+            <p class="sub">You can preview the framework below and manually download the full PDF whenever you're ready. No popup blockers, no weird browser behavior.</p>
+            <div class="actions">
+                <a class="btn btn-primary" href="/downloads/ultimate-sop-framework.pdf" target="_blank" rel="noopener">Open Full PDF</a>
+                <a class="btn btn-secondary" href="https://links.conversionpros.io/widget/bookings/nateyoderspersonal" target="_blank" rel="noopener">Book a Strategy Call</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="preview" src="/images/sop-preview/page-001.png" alt="SOP Framework preview page">
+            <div class="meta">
+                <div class="meta-card">
+                    <strong>What this helps with</strong>
+                    <span>Documenting repeatable processes so your business can scale without everything staying trapped in your head.</span>
+                </div>
+                <div class="meta-card">
+                    <strong>Who it’s for</strong>
+                    <span>Founders and operators who need cleaner delegation, better handoffs, and fewer operational bottlenecks.</span>
+                </div>
+                <div class="meta-card">
+                    <strong>Best next step</strong>
+                    <span>Review the framework, then book a strategy call if you want help implementing it in your business.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

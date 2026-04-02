@@ -54,14 +54,13 @@
     event.preventDefault();
 
     const form = event.target;
-    const container = form.closest('[data-lead-magnet]') || document;
     const nameInput = form.querySelector('input[name="name"], input#name');
     const emailInput = form.querySelector('input[name="email"], input#email');
     const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
 
     const name = (nameInput?.value || '').trim();
     const email = (emailInput?.value || '').trim();
-    const fallbackDownloadUrl = form.dataset.downloadUrl || '';
+    const redirectUrl = form.dataset.redirectUrl || form.dataset.downloadUrl || '/sop-framework.html';
     const leadMagnet = form.dataset.leadMagnet || document.body.dataset.leadMagnet || document.title || 'Lead Magnet';
     const sourcePage = window.location.href;
 
@@ -93,28 +92,17 @@
       leadResult = { ok: false, error: error?.message || 'Unknown error' };
     }
 
-    if (leadResult.ok) {
-      const formWrap = container.querySelector('#downloadForm');
-      const successWrap = container.querySelector('#successMessage');
-      if (formWrap) formWrap.style.display = 'none';
-      if (successWrap) {
-        successWrap.style.display = 'block';
-        const returnedDownloadUrl = leadResult?.data?.downloadUrl || '';
-        const finalDownloadUrl = returnedDownloadUrl || fallbackDownloadUrl;
-        const link = successWrap.querySelector('a[href]');
-        if (link && finalDownloadUrl) {
-          link.href = finalDownloadUrl;
-        }
-      }
-    } else {
+    if (!leadResult.ok) {
       console.error('Lead save failed:', leadResult);
       alert('We hit a problem saving your info. Please try again in a moment.');
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
+      return;
     }
 
-    if (submitButton) {
-      submitButton.disabled = false;
-      submitButton.textContent = originalButtonText;
-    }
+    window.location.href = redirectUrl;
   }
 
   window.handleLeadMagnetSubmit = handleLeadMagnetSubmit;
