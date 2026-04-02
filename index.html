@@ -718,6 +718,126 @@ section {
     transform: rotate(-8deg);
 }
 
+.product-device-phone {
+    width: 30%;
+    right: 8%;
+    bottom: 8px;
+    border-radius: 30px;
+    background: linear-gradient(180deg, #0b1220 0%, #111827 100%);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.45);
+    z-index: 3;
+}
+
+.device-frame {
+    padding: 18px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+}
+
+.device-frame.phone-frame {
+    padding: 12px;
+}
+
+.device-shot {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.phone-notch {
+    width: 36%;
+    height: 16px;
+    margin: 10px auto 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+}
+
+.device-caption {
+    padding: 0 18px 18px;
+}
+
+.device-caption strong {
+    display: block;
+    color: #ffffff;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+}
+
+.device-caption span {
+    display: block;
+    color: rgba(255,255,255,0.68);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.device-stack {
+    display: grid;
+    gap: 10px;
+    padding: 22px;
+}
+
+.stack-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(125, 211, 252, 0.12);
+    color: #bae6fd;
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.stack-title {
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    margin: 4px 0 2px;
+}
+
+.stack-text {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.stack-list {
+    display: grid;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.stack-list div {
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.82);
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.stack-list strong {
+    color: #fff;
+}
+
+.product-glow {
+    position: absolute;
+    inset: auto 8% 12% auto;
+    width: 220px;
+    height: 220px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(29,161,242,0.25) 0%, rgba(29,161,242,0) 72%);
+    filter: blur(8px);
+    pointer-events: none;
+}
+
 .device-topbar {
     padding: 16px 20px;
     border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -817,21 +937,34 @@ section {
 
 @media (max-width: 640px) {
     .product-visual {
-        min-height: 380px;
+        min-height: auto;
+        display: grid;
+        gap: 14px;
     }
 
-    .product-device-main {
+    .product-device-main,
+    .product-device-book,
+    .product-device-phone {
         width: 100%;
         position: relative;
+        right: auto;
+        left: auto;
+        top: auto;
+        bottom: auto;
+        transform: none;
+        margin-top: 0;
     }
 
-    .product-device-book,
     .product-badge {
-        display: none;
+        position: relative;
+        left: auto;
+        top: auto;
+        max-width: none;
     }
 
-    .device-title {
-        font-size: 1.6rem;
+    .device-title,
+    .stack-title {
+        font-size: 1.25rem;
     }
 }
 
@@ -1347,6 +1480,7 @@ section {
                 </div>
             </div>
             <div class="product-visual">
+                <div class="product-glow"></div>
                 <div class="product-badge">Founder Favorite<small>Built to help operators document, delegate, and scale with less friction</small></div>
                 <div class="product-device product-device-main">
                     <div class="device-topbar">
@@ -1354,35 +1488,34 @@ section {
                         <span class="device-dot"></span>
                         <span class="device-dot"></span>
                     </div>
-                    <div class="device-content">
-                        <div class="device-label">Digital Framework + Mini Course</div>
-                        <div class="device-title">SOP Framework</div>
-                        <p class="device-text">A premium operations toolkit that shows founders how to document key workflows, delegate with more confidence, and scale without everything bottlenecking through them.</p>
-                        <div class="device-mini-grid">
-                            <div class="device-mini-card">
-                                <strong>Framework Modules</strong>
-                                <span>Clear lessons, implementation steps, and operating principles built for real execution.</span>
-                            </div>
-                            <div class="device-mini-card">
-                                <strong>Swipeable Playbooks</strong>
-                                <span>Document the tasks, handoffs, and repeatable workflows your business depends on.</span>
-                            </div>
-                            <div class="device-mini-card">
-                                <strong>Team Adoption</strong>
-                                <span>Give hires, contractors, and leaders something they can actually follow without constant hand-holding.</span>
-                            </div>
-                            <div class="device-mini-card">
-                                <strong>Built to Implement</strong>
-                                <span>Designed to feel like a useful product, not another PDF that gets ignored after download.</span>
-                            </div>
-                        </div>
+                    <div class="device-frame">
+                        <img src="images/sop-preview/page-001.png" alt="SOP Framework desktop preview" class="device-shot">
+                    </div>
+                    <div class="device-caption">
+                        <strong>Framework Overview</strong>
+                        <span>A real preview from the SOP asset, presented like a premium digital product instead of a plain download.</span>
                     </div>
                 </div>
                 <div class="product-device product-device-book">
-                    <div class="device-content">
-                        <div class="device-label">Mobile Lesson View</div>
-                        <div class="device-title">Build Ops That Scale</div>
-                        <p class="device-text">Course-style guidance and framework previews that make the product feel more premium than a plain downloadable document.</p>
+                    <div class="device-stack">
+                        <div class="stack-chip">Product Stack</div>
+                        <div class="stack-title">Built like a founder toolkit, not a throwaway PDF.</div>
+                        <div class="stack-text">The framework now feels more like a polished digital product with guided implementation, real operating assets, and mobile-friendly lesson previews.</div>
+                        <div class="stack-list">
+                            <div><strong>Playbooks:</strong> Core processes, handoffs, and delegation structure.</div>
+                            <div><strong>Templates:</strong> Tools founders can actually use with their team.</div>
+                            <div><strong>Lesson Flow:</strong> A cleaner, course-style experience that feels more premium.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-device product-device-phone">
+                    <div class="phone-notch"></div>
+                    <div class="device-frame phone-frame">
+                        <img src="images/sop-preview/page-002.png" alt="SOP Framework mobile preview" class="device-shot">
+                    </div>
+                    <div class="device-caption">
+                        <strong>Mobile Lesson Preview</strong>
+                        <span>Gives the section a course/product feel instead of looking like static document screenshots.</span>
                     </div>
                 </div>
             </div>
