@@ -94,11 +94,7 @@
 
     if (!leadResult.ok) {
       console.error('Lead save failed:', leadResult);
-      alert('We hit a problem saving your info. Please try again in a moment.');
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = originalButtonText;
-      }
+      window.location.href = redirectUrl;
       return;
     }
 
