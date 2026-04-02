@@ -50,13 +50,6 @@
     return { ok: false, error: 'No lead endpoint configured' };
   }
 
-  function triggerDownload(downloadUrl, fallbackUrl) {
-    const url = downloadUrl || fallbackUrl;
-    if (!url) return;
-
-    window.location.href = url;
-  }
-
   async function handleLeadMagnetSubmit(event) {
     event.preventDefault();
 
@@ -104,10 +97,15 @@
       const formWrap = container.querySelector('#downloadForm');
       const successWrap = container.querySelector('#successMessage');
       if (formWrap) formWrap.style.display = 'none';
-      if (successWrap) successWrap.style.display = 'block';
-
-      const returnedDownloadUrl = leadResult?.data?.downloadUrl || '';
-      triggerDownload(returnedDownloadUrl, fallbackDownloadUrl);
+      if (successWrap) {
+        successWrap.style.display = 'block';
+        const returnedDownloadUrl = leadResult?.data?.downloadUrl || '';
+        const finalDownloadUrl = returnedDownloadUrl || fallbackDownloadUrl;
+        const link = successWrap.querySelector('a[href]');
+        if (link && finalDownloadUrl) {
+          link.href = finalDownloadUrl;
+        }
+      }
     } else {
       console.error('Lead save failed:', leadResult);
       alert('We hit a problem saving your info. Please try again in a moment.');
