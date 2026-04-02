@@ -76,9 +76,37 @@ Put the real downloadable PDFs into `downloads/`:
 Each lead magnet page now:
 - collects first name + email
 - posts to the configured webhook
+- if the primary HighLevel webhook fails, can fall back to a second lead endpoint
 - waits for success
-- uses `downloadUrl` returned by the Worker when available
+- uses `downloadUrl` returned by the endpoint when available
 - falls back to the page-configured download URL if needed
+
+### Fallback mode: notify Nate directly
+If you want a simpler first live version, the front-end can point `data-fallback-webhook-url` at a tiny endpoint that does two things:
+1. sends Nate the captured lead details
+2. returns `{ "ok": true, "downloadUrl": "https://...pdf" }`
+
+Payload sent by the page:
+
+```json
+{
+  "name": "Jane Smith",
+  "email": "jane@example.com",
+  "leadMagnet": "Ultimate SOP Framework",
+  "source": "website",
+  "sourcePage": "https://www.itsnateyoder.com/lead-magnet.html",
+  "tags": ["Website Lead", "Lead Magnet", "Ultimate SOP Framework"]
+}
+```
+
+Minimum successful response:
+
+```json
+{
+  "ok": true,
+  "downloadUrl": "https://www.itsnateyoder.com/downloads/ultimate-sop-framework.pdf"
+}
+```
 
 ---
 

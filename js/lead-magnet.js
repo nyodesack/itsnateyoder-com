@@ -1,10 +1,10 @@
 (function () {
-  async function postLead(payload, webhookUrl) {
-    if (!webhookUrl) {
-      return { ok: false, error: 'Missing webhook URL' };
+  async function postJson(url, payload) {
+    if (!url) {
+      return { ok: false, error: 'Missing URL' };
     }
 
-    const response = await fetch(webhookUrl, {
+    const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
@@ -27,6 +27,27 @@
       status: response.status,
       data
     };
+  }
+
+  async function submitLead(payload, form) {
+    const primaryWebhookUrl = form.dataset.webhookUrl || window.LEAD_WEBHOOK_URL || '';
+    const fallbackWebhookUrl = form.dataset.fallbackWebhookUrl || window.LEAD_FALLBACK_WEBHOOK_URL || '';
+
+    if (primaryWebhookUrl) {
+      try {
+        const primaryResult = await postJson(primaryWebhookUrl, payload);
+        if (primaryResult.ok) return primaryResult;
+        console.warn('Primary lead webhook failed, trying fallback.', primaryResult);
+      } catch (error) {
+        console.warn('Primary lead webhook threw, trying fallback.', error);
+      }
+    }
+
+    if (fallbackWebhookUrl) {
+      return postJson(fallbackWebhookUrl, payload);
+    }
+
+    return { ok: false, error: 'No lead endpoint configured' };
   }
 
   function triggerDownload(downloadUrl, fallbackUrl) {
@@ -52,7 +73,6 @@
 
     const name = (nameInput?.value || '').trim();
     const email = (emailInput?.value || '').trim();
-    const webhookUrl = form.dataset.webhookUrl || window.LEAD_WEBHOOK_URL || '';
     const fallbackDownloadUrl = form.dataset.downloadUrl || '';
     const leadMagnet = form.dataset.leadMagnet || document.body.dataset.leadMagnet || document.title || 'Lead Magnet';
     const sourcePage = window.location.href;
@@ -79,7 +99,7 @@
 
     let leadResult;
     try {
-      leadResult = await postLead(payload, webhookUrl);
+      leadResult = await submitLead(payload, form);
     } catch (error) {
       console.error('Lead submission failed:', error);
       leadResult = { ok: false, error: error?.message || 'Unknown error' };
@@ -91,8 +111,8 @@
       if (formWrap) formWrap.style.display = 'none';
       if (successWrap) successWrap.style.display = 'block';
 
-      const workerDownloadUrl = leadResult?.data?.downloadUrl || '';
-      triggerDownload(workerDownloadUrl, fallbackDownloadUrl);
+      const returnedDownloadUrl = leadResult?.data?.downloadUrl || '';
+      triggerDownload(returnedDownloadUrl, fallbackDownloadUrl);
     } else {
       console.error('Lead save failed:', leadResult);
       alert('We hit a problem saving your info. Please try again in a moment.');
