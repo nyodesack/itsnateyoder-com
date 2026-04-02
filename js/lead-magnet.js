@@ -94,11 +94,11 @@
 
     if (!leadResult.ok) {
       console.error('Lead save failed:', leadResult);
-      window.location.href = redirectUrl;
+      window.location.assign(new URL(redirectUrl, window.location.origin).toString());
       return;
     }
 
-    window.location.href = redirectUrl;
+    window.location.assign(new URL(redirectUrl, window.location.origin).toString());
   }
 
   window.handleLeadMagnetSubmit = handleLeadMagnetSubmit;
