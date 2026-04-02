@@ -304,7 +304,7 @@ body {
                 <div class="form-container">
                     <div id="downloadForm">
                         <h2 class="form-title">Get Instant Access</h2>
-                        <form id="leadForm" onsubmit="handleLeadMagnetSubmit(event)" data-webhook-url="https://itsnateyoder-ghl-leads.YOUR-SUBDOMAIN.workers.dev" data-redirect-url="https://www.itsnateyoder.com/sop-framework.html" data-lead-magnet="Ultimate SOP Framework">
+                        <form id="leadForm" action="https://www.itsnateyoder.com/sop-framework.html" method="get">
                             <div class="form-group">
                                 <label class="form-label" for="name">First Name</label>
                                 <input 
@@ -312,8 +312,7 @@ body {
                                     id="name" 
                                     name="name" 
                                     class="form-input" 
-                                    placeholder="Enter your first name" 
-                                    required
+                                    placeholder="Enter your first name"
                                 >
                             </div>
                             <div class="form-group">
@@ -323,12 +322,11 @@ body {
                                     id="email" 
                                     name="email" 
                                     class="form-input" 
-                                    placeholder="your@email.com" 
-                                    required
+                                    placeholder="your@email.com"
                                 >
                             </div>
                             <button type="submit" class="btn-submit">
-                                Download Free Framework →
+                                Continue to Framework →
                             </button>
                         </form>
                         <p class="privacy-text">🔒 Enter your info to continue to the framework access page.</p>
@@ -352,6 +350,5 @@ body {
     </section>
 
     
-    <script src="/js/lead-magnet.js"></script>
 </body>
 </html>
