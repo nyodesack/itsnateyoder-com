@@ -1409,7 +1409,7 @@ section {
                 </h1>
                 <p class="hero-subtitle animate-subtitle">I help founders turn messy growth into predictable expansion through systems, strategic partnerships, and stronger revenue operations.</p>
                 <div class="hero-cta animate-cta">
-                    <a href="lead-magnet-systems.html" class="btn btn-primary btn-glow">
+                    <a href="javascript:void(0)" onclick="openLeadForm(); return false;" class="btn btn-primary btn-glow">
                         <span class="btn-text">Get the Free SOP Framework</span>
                         <span class="btn-shine"></span>
                     </a>
@@ -1470,7 +1470,7 @@ section {
                     <li>Turn chaos into repeatable structure without making your company feel stiff or overbuilt.</li>
                 </ul>
                 <div class="product-actions">
-                    <a href="lead-magnet-systems.html" class="btn btn-primary btn-glow">
+                    <a href="javascript:void(0)" onclick="openLeadForm(); return false;" class="btn btn-primary btn-glow">
                         <span class="btn-text">Explore the SOP Framework</span>
                         <span class="btn-shine"></span>
                     </a>
@@ -1626,27 +1626,10 @@ section {
         <div class="container cta-container">
             <h2 class="cta-title">Ready to Scale Your Business?</h2>
             <p class="cta-subtitle">Get the free SOP framework that's helped businesses scale from local to national</p>
-            <div style="max-width:600px;margin:32px auto;background:rgba(255,255,255,0.98);border-radius:12px;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
-                <iframe
-                    src="https://links.conversionpros.io/widget/form/Ed3hHtz8hqDN9mxAwdrS"
-                    style="width:100%;height:666px;border:none;border-radius:3px"
-                    id="inline-Ed3hHtz8hqDN9mxAwdrS"
-                    data-layout="{'id':'INLINE'}"
-                    data-trigger-type="alwaysShow"
-                    data-trigger-value=""
-                    data-activation-type="alwaysActivated"
-                    data-activation-value=""
-                    data-deactivation-type="neverDeactivate"
-                    data-deactivation-value=""
-                    data-form-name="Nate Form"
-                    data-height="625"
-                    data-layout-iframe-id="inline-Ed3hHtz8hqDN9mxAwdrS"
-                    data-form-id="Ed3hHtz8hqDN9mxAwdrS"
-                    title="Nate Form"
-                >
-                </iframe>
-                <script src="https://links.conversionpros.io/js/form_embed.js"></script>
-            </div>
+            <a href="javascript:void(0)" onclick="openLeadForm(); return false;" class="btn btn-primary btn-large btn-glow">
+                <span class="btn-text">Download Free Framework</span>
+                <span class="btn-shine"></span>
+            </a>
             <p style="margin-top:20px;"><a href="sop-framework.html" style="color:rgba(255,255,255,0.9);text-decoration:underline;">Continue to the SOP Framework →</a></p>
         </div>
     </section>
@@ -1693,6 +1676,20 @@ section {
     </footer>
 
     <script src="script-v2.js"></script>
+
+<script>
+// HighLevel form pop-up trigger
+function openLeadForm() {
+    // Trigger the HighLevel pop-up by simulating a click on the hidden iframe container
+    var formContainer = document.getElementById('popup-Ed3hHtz8hqDN9mxAwdrS');
+    if (formContainer && formContainer.click) {
+        formContainer.click();
+    } else {
+        // Fallback: try to dispatch custom event
+        formContainer.dispatchEvent(new CustomEvent('click', {bubbles: true}));
+    }
+}
+</script>
 </body>
 <script>
 // ===================================

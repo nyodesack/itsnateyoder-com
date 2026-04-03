@@ -304,25 +304,10 @@ body {
                 <div class="form-container">
                     <div id="downloadForm">
                         <h2 class="form-title">Get Instant Access</h2>
-                        <iframe
-                            src="https://links.conversionpros.io/widget/form/Ed3hHtz8hqDN9mxAwdrS"
-                            style="width:100%;height:100%;border:none;border-radius:3px"
-                            id="inline-Ed3hHtz8hqDN9mxAwdrS" 
-                            data-layout="{'id':'INLINE'}"
-                            data-trigger-type="alwaysShow"
-                            data-trigger-value=""
-                            data-activation-type="alwaysActivated"
-                            data-activation-value=""
-                            data-deactivation-type="neverDeactivate"
-                            data-deactivation-value=""
-                            data-form-name="Nate Form"
-                            data-height="625"
-                            data-layout-iframe-id="inline-Ed3hHtz8hqDN9mxAwdrS"
-                            data-form-id="Ed3hHtz8hqDN9mxAwdrS"
-                            title="Nate Form"
-                        >
-                        </iframe>
-                        <script src="https://links.conversionpros.io/js/form_embed.js"></script>
+                        <p class="privacy-text" style="margin-bottom:24px;">Fill out the form to access the SOP Framework</p>
+                        <a href="javascript:void(0)" onclick="openLeadForm(); return false;" class="btn btn-submit" style="display:block;text-align:center;">
+                            Open Form →
+                        </a>
                         <p class="privacy-text"><a href="https://www.itsnateyoder.com/sop-framework.html" rel="noopener">Continue to the SOP Framework →</a></p>
                         
                         <div class="social-proof">
@@ -337,5 +322,19 @@ body {
     </section>
 
     
+
+<script>
+// HighLevel form pop-up trigger
+function openLeadForm() {
+    // Trigger the HighLevel pop-up by simulating a click on the hidden iframe container
+    var formContainer = document.getElementById('popup-Ed3hHtz8hqDN9mxAwdrS');
+    if (formContainer && formContainer.click) {
+        formContainer.click();
+    } else {
+        // Fallback: try to dispatch custom event
+        formContainer.dispatchEvent(new CustomEvent('click', {bubbles: true}));
+    }
+}
+</script>
 </body>
 </html>
