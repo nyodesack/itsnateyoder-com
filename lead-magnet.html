@@ -324,16 +324,14 @@ body {
     
 
 <script>
-// HighLevel form pop-up trigger
+// HighLevel form pop-up trigger - opens form in centered pop-up window
 function openLeadForm() {
-    // Trigger the HighLevel pop-up by simulating a click on the hidden iframe container
-    var formContainer = document.getElementById('popup-Ed3hHtz8hqDN9mxAwdrS');
-    if (formContainer && formContainer.click) {
-        formContainer.click();
-    } else {
-        // Fallback: try to dispatch custom event
-        formContainer.dispatchEvent(new CustomEvent('click', {bubbles: true}));
-    }
+    var url = 'https://links.conversionpros.io/widget/form/Ed3hHtz8hqDN9mxAwdrS';
+    var width = 600;
+    var height = 700;
+    var left = (screen.width - width) / 2;
+    var top = (screen.height - height) / 2;
+    window.open(url, 'HighLevelForm', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top + ',scrollbars=yes,resizable=yes');
 }
 </script>
 </body>
