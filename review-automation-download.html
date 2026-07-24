@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Get Nate Yoder's Review Automation Blueprint: the exact SMS, email, timing, and follow-up sequence that turns completed jobs into consistent Google reviews.">
+  <title>Download the Review Automation Blueprint | Nate Yoder</title>
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#07131f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!--
+    Headline formula: #7 Problem → Solution.
+    Visual strategy: upgrade Nate's current bluebird-blue/navy identity into a sharper operator playbook aesthetic;
+    electric blue for action, warm white for clarity, Manrope display + Inter body, asymmetric editorial rhythm.
+    No purple gradients, glass-card sprawl, fake metrics, or stock photography.
+  -->
+  <style>
+    :root {
+      --ink: #07131f;
+      --ink-2: #0d2032;
+      --ink-3: #17334a;
+      --blue: #1da1f2;
+      --blue-2: #0785d1;
+      --sky: #79cfff;
+      --paper: #f4f7f9;
+      --white: #ffffff;
+      --muted: #637180;
+      --line: #dbe4ea;
+      --green: #18a875;
+      --amber: #f0a53b;
+      --shadow: 0 24px 70px rgba(7, 19, 31, .12);
+      --radius: 22px;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.6; overflow-x: hidden; }
+    h1,h2,h3,.logo { font-family: Manrope, sans-serif; }
+    a { color: inherit; }
+    button,input { font: inherit; }
+    img { max-width: 100%; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .nav { position: absolute; inset: 0 0 auto; z-index: 20; padding: 22px 0; }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo { color: var(--white); text-decoration: none; font-weight: 800; font-size: 22px; letter-spacing: -.04em; }
+    .nav-back { color: #dbeeff; text-decoration: none; font-weight: 700; font-size: 14px; display: flex; gap: 9px; align-items: center; }
+    .nav-back:hover { color: var(--white); }
+    .hero { min-height: 760px; color: var(--white); position: relative; overflow: hidden; background: var(--ink); padding: 150px 0 105px; }
+    .hero:before { content:""; position:absolute; inset:0; background:
+      radial-gradient(circle at 78% 22%, rgba(29,161,242,.30), transparent 28%),
+      radial-gradient(circle at 15% 90%, rgba(29,161,242,.15), transparent 27%),
+      linear-gradient(135deg,#07131f 0%,#0b2033 58%,#07385a 100%); }
+    .hero:after { content:""; position:absolute; inset:0; opacity:.17; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E"); pointer-events:none; }
+    .hero-grid { position:relative; z-index:2; display:grid; grid-template-columns: 1.08fr .82fr; gap:70px; align-items:center; }
+    .eyebrow { display:inline-flex; align-items:center; gap:10px; color:#bfe7ff; font-size:12px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; margin-bottom:22px; }
+    .eyebrow-dot { width:8px; height:8px; border-radius:50%; background:var(--blue); box-shadow:0 0 0 7px rgba(29,161,242,.15); }
+    .hero h1 { font-size:clamp(48px,7vw,84px); line-height:.98; letter-spacing:-.065em; max-width:780px; }
+    .hero h1 span { color:var(--sky); }
+    .hero-copy { max-width:630px; color:#c9d9e6; font-size:19px; line-height:1.65; margin-top:27px; }
+    .hero-proof { display:flex; flex-wrap:wrap; gap:12px 22px; margin-top:30px; color:#eaf6ff; font-size:14px; font-weight:700; }
+    .proof { display:flex; align-items:center; gap:8px; }
+    .proof svg { width:17px; stroke:var(--sky); }
+    .form-card { background:var(--white); color:var(--ink); border-radius:26px; padding:34px; box-shadow:0 35px 100px rgba(0,0,0,.28); position:relative; }
+    .form-card:before { content:"FREE BLUEPRINT"; position:absolute; top:-13px; left:28px; background:var(--blue); color:#06121d; padding:7px 12px; border-radius:7px; font-size:11px; font-weight:900; letter-spacing:.14em; }
+    .form-card h2 { font-size:28px; line-height:1.15; letter-spacing:-.04em; margin:9px 0 10px; }
+    .form-card p { color:var(--muted); font-size:14px; margin-bottom:22px; }
+    .download-panel { display:grid; gap:14px; margin-top:22px; }
+    .download-button { display:flex; justify-content:center; align-items:center; width:100%; padding:16px 20px; border-radius:10px; background:var(--blue); color:#fff; text-decoration:none; font-family:Manrope,sans-serif; font-weight:900; transition:.2s; }
+    .download-button:hover { transform:translateY(-2px); background:var(--blue-2); }
+    .catalog-link { text-align:center; color:var(--ink); font-size:13px; font-weight:800; }
+    .form-note { font-size:11px!important; text-align:center; margin:9px 0 0!important; color:#7b8792!important; }
+    .success { display:none; text-align:center; padding:18px 2px 4px; }
+    .success.show { display:block; }
+    .success-badge { width:52px; height:52px; margin:0 auto 15px; border-radius:50%; display:grid; place-items:center; background:#e6f8f1; color:var(--green); font-size:24px; font-weight:900; }
+    .success a { display:inline-flex; margin-top:16px; text-decoration:none; background:var(--ink); color:white; padding:14px 18px; border-radius:10px; font-weight:800; }
+    .form-fields.hidden { display:none; }
+    .section { padding:105px 0; }
+    .section-label { color:var(--blue-2); text-transform:uppercase; letter-spacing:.16em; font-size:12px; font-weight:900; margin-bottom:16px; }
+    .section h2 { font-size:clamp(36px,5vw,60px); line-height:1.06; letter-spacing:-.055em; max-width:830px; }
+    .lead { color:var(--muted); font-size:18px; max-width:700px; margin-top:20px; }
+    .flow { margin-top:55px; display:grid; grid-template-columns:repeat(5,1fr); gap:16px; align-items:stretch; }
+    .flow-step { min-height:185px; background:var(--white); border:1px solid var(--line); border-radius:18px; padding:23px; position:relative; box-shadow:0 12px 34px rgba(7,19,31,.05); }
+    .flow-step:not(:last-child):after { content:"→"; position:absolute; z-index:2; right:-23px; top:48%; width:30px; height:30px; border-radius:50%; display:grid; place-items:center; background:var(--ink); color:var(--sky); font-weight:900; }
+    .step-no { font-size:11px; font-weight:900; color:var(--blue-2); letter-spacing:.14em; }
+    .flow-step h3 { font-size:19px; margin:16px 0 8px; letter-spacing:-.03em; }
+    .flow-step p { font-size:13px; color:var(--muted); }
+    .flow-step.decision { background:var(--ink); color:white; border-color:var(--ink); }
+    .flow-step.decision p { color:#b8cedd; }
+    .branch { display:flex; gap:7px; margin-top:15px; }
+    .branch span { padding:6px 8px; border-radius:6px; background:rgba(255,255,255,.08); font-size:10px; font-weight:800; }
+    .branch span:first-child { color:#76e5b7; }
+    .sequence { background:var(--white); }
+    .sequence-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:65px; margin-top:55px; align-items:start; }
+    .timeline { position:sticky; top:30px; }
+    .timeline-item { display:grid; grid-template-columns:44px 1fr; gap:14px; padding-bottom:30px; position:relative; }
+    .timeline-item:not(:last-child):before { content:""; position:absolute; left:21px; top:42px; bottom:0; width:2px; background:#d8e6ee; }
+    .time-dot { width:44px; height:44px; border-radius:50%; display:grid; place-items:center; background:#e8f6fe; color:var(--blue-2); font-size:12px; font-weight:900; }
+    .timeline-item strong { display:block; font-family:Manrope,sans-serif; margin:1px 0 3px; }
+    .timeline-item p { color:var(--muted); font-size:13px; }
+    .messages { display:grid; gap:18px; }
+    .message { border:1px solid var(--line); border-radius:18px; overflow:hidden; }
+    .message-head { display:flex; justify-content:space-between; gap:12px; align-items:center; background:#f0f5f8; padding:14px 18px; border-bottom:1px solid var(--line); }
+    .message-head strong { font-family:Manrope,sans-serif; }
+    .channel { color:var(--blue-2); font-size:11px; font-weight:900; letter-spacing:.1em; }
+    .message-body { padding:22px; font-size:14px; color:#334759; white-space:pre-line; }
+    .variable { background:#dff2fd; color:#075e91; border-radius:4px; padding:1px 4px; font-weight:700; }
+    .decision-band { background:var(--ink); color:white; }
+    .decision-grid { display:grid; grid-template-columns:.78fr 1.22fr; gap:70px; align-items:start; }
+    .decision-band .section-label { color:var(--sky); }
+    .decision-band p { color:#bfd0dc; }
+    .options { display:grid; gap:16px; }
+    .option { border:1px solid rgba(255,255,255,.13); padding:24px; border-radius:16px; background:rgba(255,255,255,.04); }
+    .option.recommended { border-color:rgba(29,161,242,.55); background:rgba(29,161,242,.08); }
+    .option-label { color:var(--sky); font-size:11px; font-weight:900; letter-spacing:.13em; text-transform:uppercase; }
+    .option h3 { margin:8px 0; font-size:21px; }
+    .option p { font-size:14px; }
+    .tips-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:50px; }
+    .tip { padding:28px 0; border-top:1px solid #cdd9e0; }
+    .tip-no { color:var(--blue-2); font-size:12px; font-weight:900; }
+    .tip h3 { margin:9px 0 8px; font-size:22px; }
+    .tip p { color:var(--muted); font-size:15px; max-width:48ch; }
+    .final-cta { padding:110px 0; background:#e8f0f5; }
+    .cta-panel { background:var(--white); border-radius:28px; padding:65px; display:grid; grid-template-columns:1fr auto; gap:40px; align-items:center; box-shadow:var(--shadow); }
+    .cta-panel h2 { font-size:clamp(34px,4vw,52px); }
+    .cta-panel p { color:var(--muted); margin-top:13px; max-width:650px; }
+    .book { text-decoration:none; background:var(--ink); color:white; padding:17px 24px; border-radius:11px; font-weight:900; white-space:nowrap; transition:.2s; }
+    .book:hover { transform:translateY(-2px); background:var(--ink-3); }
+    footer { background:var(--ink); color:#aebfcb; padding:34px 0; font-size:13px; }
+    .footer-inner { display:flex; justify-content:space-between; gap:20px; }
+    @media(max-width:980px){
+      .hero-grid,.sequence-grid,.decision-grid { grid-template-columns:1fr; }
+      .hero-grid { gap:48px; }
+      .form-card { max-width:620px; }
+      .flow { grid-template-columns:1fr 1fr; }
+      .flow-step:not(:last-child):after { display:none; }
+      .timeline { position:static; }
+      .cta-panel { grid-template-columns:1fr; }
+      .book { justify-self:start; }
+    }
+    @media(max-width:640px){
+      .container { width:min(100% - 28px,var(--max)); }
+      .nav { padding:18px 0; }
+      .nav-back span { display:none; }
+      .hero { min-height:auto; padding:125px 0 74px; }
+      .hero h1 { font-size:50px; }
+      .hero-copy { font-size:17px; }
+      .form-card { padding:28px 20px; }
+      .section { padding:78px 0; }
+      .flow,.tips-grid { grid-template-columns:1fr; }
+      .flow-step { min-height:auto; }
+      .message-head { align-items:flex-start; flex-direction:column; }
+      .message-body { padding:18px; }
+      .cta-panel { padding:38px 24px; }
+      .book { width:100%; text-align:center; }
+      .footer-inner { flex-direction:column; }
+    }
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; transition-duration:.01ms!important; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="index.html">Nate Yoder</a>
+      <a class="nav-back" href="index.html"><span>Back to ItsNateYoder.com</span> →</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-dot"></span> The Systems Library / 01</div>
+        <h1>Your happy customers aren't leaving reviews. <span>Your system is the problem.</span></h1>
+        <p class="hero-copy">Use this plug-and-play sequence to ask at the right moment, follow up without being annoying, and make review requests automatic.</p>
+        <div class="hero-proof">
+          <span class="proof"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg> Exact SMS templates</span>
+          <span class="proof"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg> Timing & stop conditions</span>
+          <span class="proof"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg> CRM-ready workflow</span>
+        </div>
+      </div>
+
+      <aside class="form-card" id="download">
+        <h2>Your blueprint is ready</h2>
+        <p>Download the complete Review Automation Blueprint, including the message templates, timing rules, stop conditions, and human handoff.</p>
+        <div class="download-panel">
+          <a class="download-button" href="downloads/The_Review_Automation_Blueprint.pdf" download>Download the Review Automation Blueprint</a>
+          <a class="catalog-link" href="systems-library.html">Browse the Systems Library →</a>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-label">The automation at a glance</div>
+        <h2>One completed job. Three thoughtful asks. Zero reliance on memory.</h2>
+        <p class="lead">The sequence starts when the job is marked complete and stops the moment the customer leaves a review.</p>
+        <div class="flow" aria-label="Review automation sequence">
+          <article class="flow-step"><span class="step-no">STEP 01</span><h3>Job completed</h3><p>Your CRM marks the work complete and triggers the workflow immediately.</p></article>
+          <article class="flow-step"><span class="step-no">STEP 02</span><h3>Personal SMS</h3><p>Thank them by name, mention who helped, and reference the problem solved.</p></article>
+          <article class="flow-step decision"><span class="step-no">WAIT 2 DAYS</span><h3>Review posted?</h3><p>Check before contacting them again.</p><div class="branch"><span>YES → STOP</span><span>NO → EMAIL</span></div></article>
+          <article class="flow-step"><span class="step-no">WAIT 1 DAY</span><h3>Final SMS</h3><p>Send one concise reminder while the experience is still fresh.</p></article>
+          <article class="flow-step"><span class="step-no">FINAL STEP</span><h3>Human follow-up</h3><p>Notify your team for a personal call—or enter a limited reminder sequence.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sequence">
+      <div class="container">
+        <div class="section-label">Copy-and-paste sequence</div>
+        <h2>The messages are already written. Personalize three fields.</h2>
+        <div class="sequence-grid">
+          <div class="timeline">
+            <div class="timeline-item"><div class="time-dot">NOW</div><div><strong>SMS #1</strong><p>Send when the job is completed.</p></div></div>
+            <div class="timeline-item"><div class="time-dot">+2D</div><div><strong>Email</strong><p>Only if no review is detected.</p></div></div>
+            <div class="timeline-item"><div class="time-dot">+1D</div><div><strong>Final SMS</strong><p>Stop after this automated reminder.</p></div></div>
+          </div>
+          <div class="messages">
+            <article class="message">
+              <div class="message-head"><strong>Thank them while the win is fresh</strong><span class="channel">SMS #1</span></div>
+              <div class="message-body">Hi <span class="variable">First Name</span>,
+
+We wanted to thank you again from the bottom of our hearts for trusting us. I'm so glad <span class="variable">Team Member</span> was able to help you with <span class="variable">Problem Solved</span>.
+
+As a small business, reviews mean the world to us, and we'd be incredibly grateful if you took 30 seconds to share your experience.
+
+Leave your review here: <span class="variable">Google Review Link</span>
+
+Thank you again—we truly appreciate your support!</div>
+            </article>
+            <article class="message">
+              <div class="message-head"><strong>Catch the text that got buried</strong><span class="channel">EMAIL</span></div>
+              <div class="message-body"><strong>Subject: A quick favor</strong>
+
+Hi <span class="variable">First Name</span>,
+
+I just wanted to follow up in case my text got buried. If you have a minute, we'd be incredibly grateful if you shared your experience with us.
+
+Your review helps other people feel confident choosing our business and helps support our team.
+
+Leave your review here: <span class="variable">Google Review Link</span>
+
+Thank you again for your support.</div>
+            </article>
+            <article class="message">
+              <div class="message-head"><strong>One last respectful reminder</strong><span class="channel">FINAL SMS</span></div>
+              <div class="message-body">Hi <span class="variable">First Name</span>,
+
+Just wanted to send one last reminder while your experience is still fresh. If you haven't had a chance yet, we'd really appreciate your feedback.
+
+Here's the review link one more time: <span class="variable">Google Review Link</span>
+
+Thank you so much!</div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section decision-band">
+      <div class="container decision-grid">
+        <div>
+          <div class="section-label">If there is still no review</div>
+          <h2>Automation should hand off—not become harassment.</h2>
+          <p class="lead">After the final SMS, choose a controlled next step instead of sending endless reminders.</p>
+        </div>
+        <div class="options">
+          <article class="option recommended"><div class="option-label">Recommended</div><h3>Trigger a human call</h3><p>Notify the team member who served the customer. If the experience was positive, ask personally and respectfully.</p></article>
+          <article class="option"><div class="option-label">Alternative</div><h3>Use a limited reminder track</h3><p>Move them into a weekly reminder workflow. Stop immediately when they review—or automatically after 30 days.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-label">Implementation rules</div>
+        <h2>The system works because it feels human—not because it sends more messages.</h2>
+        <div class="tips-grid">
+          <article class="tip"><span class="tip-no">01</span><h3>Personalize only what matters</h3><p>First name, team member, and problem solved are enough to make the sequence feel specific.</p></article>
+          <article class="tip"><span class="tip-no">02</span><h3>Detect reviews before every send</h3><p>The fastest way to annoy a happy customer is to keep asking after they already reviewed you.</p></article>
+          <article class="tip"><span class="tip-no">03</span><h3>Ask at the emotional high point</h3><p>Start when the work is marked complete—while the outcome and gratitude are still fresh.</p></article>
+          <article class="tip"><span class="tip-no">04</span><h3>Put a hard stop on follow-up</h3><p>Two automated reminders are enough. After that, use a human touch or end the sequence.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container cta-panel">
+        <div><div class="section-label">Want it built for you?</div><h2>Turn this blueprint into a working CRM automation.</h2><p>Book an Automation Audit and we'll map the trigger, messages, review detection, and team handoff around your current systems.</p></div>
+        <a class="book" href="https://links.mydas.ai/widget/booking/zCP75fYt9rf8v6no6BXM" target="_blank" rel="noopener">Book an Automation Audit →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><strong>Nate Yoder / The Systems Library</strong><span>Practical systems for businesses that want to scale.</span></div></footer>
+
+</body>
+</html>
