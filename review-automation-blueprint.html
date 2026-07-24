@@ -2,204 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Get Nate Yoder's Review Automation Blueprint: the exact SMS, email, timing, and follow-up sequence that turns completed jobs into consistent Google reviews.">
-  <title>Review Automation Blueprint | Nate Yoder</title>
-  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Get Nate Yoder's free Review Automation Blueprint: the exact messages, timing, stop conditions, and handoff that turn completed jobs into consistent review requests.">
+  <title>Free Review Automation Blueprint | Nate Yoder</title>
   <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#07131f">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <!--
-    Headline formula: #7 Problem → Solution.
-    Visual strategy: upgrade Nate's current bluebird-blue/navy identity into a sharper operator playbook aesthetic;
-    electric blue for action, warm white for clarity, Manrope display + Inter body, asymmetric editorial rhythm.
-    No purple gradients, glass-card sprawl, fake metrics, or stock photography.
-  -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --ink: #07131f;
-      --ink-2: #0d2032;
-      --ink-3: #17334a;
-      --blue: #1da1f2;
-      --blue-2: #0785d1;
-      --sky: #79cfff;
-      --paper: #f4f7f9;
-      --white: #ffffff;
-      --muted: #637180;
-      --line: #dbe4ea;
-      --green: #18a875;
-      --amber: #f0a53b;
-      --shadow: 0 24px 70px rgba(7, 19, 31, .12);
-      --radius: 22px;
-      --max: 1180px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: Inter, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.6; overflow-x: hidden; }
-    h1,h2,h3,.logo { font-family: Manrope, sans-serif; }
-    a { color: inherit; }
-    button,input { font: inherit; }
-    img { max-width: 100%; }
-    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
-    .nav { position: absolute; inset: 0 0 auto; z-index: 20; padding: 22px 0; }
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
-    .logo { color: var(--white); text-decoration: none; font-weight: 800; font-size: 22px; letter-spacing: -.04em; }
-    .nav-back { color: #dbeeff; text-decoration: none; font-weight: 700; font-size: 14px; display: flex; gap: 9px; align-items: center; }
-    .nav-back:hover { color: var(--white); }
-    .hero { min-height: 760px; color: var(--white); position: relative; overflow: hidden; background: var(--ink); padding: 150px 0 105px; }
-    .hero:before { content:""; position:absolute; inset:0; background:
-      radial-gradient(circle at 78% 22%, rgba(29,161,242,.30), transparent 28%),
-      radial-gradient(circle at 15% 90%, rgba(29,161,242,.15), transparent 27%),
-      linear-gradient(135deg,#07131f 0%,#0b2033 58%,#07385a 100%); }
-    .hero:after { content:""; position:absolute; inset:0; opacity:.17; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E"); pointer-events:none; }
-    .hero-grid { position:relative; z-index:2; display:grid; grid-template-columns: 1.08fr .82fr; gap:70px; align-items:center; }
-    .eyebrow { display:inline-flex; align-items:center; gap:10px; color:#bfe7ff; font-size:12px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; margin-bottom:22px; }
-    .eyebrow-dot { width:8px; height:8px; border-radius:50%; background:var(--blue); box-shadow:0 0 0 7px rgba(29,161,242,.15); }
-    .hero h1 { font-size:clamp(48px,7vw,84px); line-height:.98; letter-spacing:-.065em; max-width:780px; }
-    .hero h1 span { color:var(--sky); }
-    .hero-copy { max-width:630px; color:#c9d9e6; font-size:19px; line-height:1.65; margin-top:27px; }
-    .hero-proof { display:flex; flex-wrap:wrap; gap:12px 22px; margin-top:30px; color:#eaf6ff; font-size:14px; font-weight:700; }
-    .proof { display:flex; align-items:center; gap:8px; }
-    .proof svg { width:17px; stroke:var(--sky); }
-    .form-card { background:var(--white); color:var(--ink); border-radius:26px; padding:34px; box-shadow:0 35px 100px rgba(0,0,0,.28); position:relative; }
-    .form-card:before { content:"FREE BLUEPRINT"; position:absolute; top:-13px; left:28px; background:var(--blue); color:#06121d; padding:7px 12px; border-radius:7px; font-size:11px; font-weight:900; letter-spacing:.14em; }
-    .form-card h2 { font-size:28px; line-height:1.15; letter-spacing:-.04em; margin:9px 0 10px; }
-    .form-card p { color:var(--muted); font-size:14px; margin-bottom:22px; }
-    .ghl-form { width:100%; height:522px; border:0; border-radius:8px; display:block; overflow:hidden; }
-    .form-note { font-size:11px!important; text-align:center; margin:9px 0 0!important; color:#7b8792!important; }
-    .success { display:none; text-align:center; padding:18px 2px 4px; }
-    .success.show { display:block; }
-    .success-badge { width:52px; height:52px; margin:0 auto 15px; border-radius:50%; display:grid; place-items:center; background:#e6f8f1; color:var(--green); font-size:24px; font-weight:900; }
-    .success a { display:inline-flex; margin-top:16px; text-decoration:none; background:var(--ink); color:white; padding:14px 18px; border-radius:10px; font-weight:800; }
-    .form-fields.hidden { display:none; }
-    .section { padding:105px 0; }
-    .section-label { color:var(--blue-2); text-transform:uppercase; letter-spacing:.16em; font-size:12px; font-weight:900; margin-bottom:16px; }
-    .section h2 { font-size:clamp(36px,5vw,60px); line-height:1.06; letter-spacing:-.055em; max-width:830px; }
-    .lead { color:var(--muted); font-size:18px; max-width:700px; margin-top:20px; }
-    .flow { margin-top:55px; display:grid; grid-template-columns:repeat(5,1fr); gap:16px; align-items:stretch; }
-    .flow-step { min-height:185px; background:var(--white); border:1px solid var(--line); border-radius:18px; padding:23px; position:relative; box-shadow:0 12px 34px rgba(7,19,31,.05); }
-    .flow-step:not(:last-child):after { content:"→"; position:absolute; z-index:2; right:-23px; top:48%; width:30px; height:30px; border-radius:50%; display:grid; place-items:center; background:var(--ink); color:var(--sky); font-weight:900; }
-    .step-no { font-size:11px; font-weight:900; color:var(--blue-2); letter-spacing:.14em; }
-    .flow-step h3 { font-size:19px; margin:16px 0 8px; letter-spacing:-.03em; }
-    .flow-step p { font-size:13px; color:var(--muted); }
-    .flow-step.decision { background:var(--ink); color:white; border-color:var(--ink); }
-    .flow-step.decision p { color:#b8cedd; }
-    .branch { display:flex; gap:7px; margin-top:15px; }
-    .branch span { padding:6px 8px; border-radius:6px; background:rgba(255,255,255,.08); font-size:10px; font-weight:800; }
-    .branch span:first-child { color:#76e5b7; }
-    .sequence { background:var(--white); }
-    .sequence-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:65px; margin-top:55px; align-items:start; }
-    .timeline { position:sticky; top:30px; }
-    .timeline-item { display:grid; grid-template-columns:44px 1fr; gap:14px; padding-bottom:30px; position:relative; }
-    .timeline-item:not(:last-child):before { content:""; position:absolute; left:21px; top:42px; bottom:0; width:2px; background:#d8e6ee; }
-    .time-dot { width:44px; height:44px; border-radius:50%; display:grid; place-items:center; background:#e8f6fe; color:var(--blue-2); font-size:12px; font-weight:900; }
-    .timeline-item strong { display:block; font-family:Manrope,sans-serif; margin:1px 0 3px; }
-    .timeline-item p { color:var(--muted); font-size:13px; }
-    .messages { display:grid; gap:18px; }
-    .message { border:1px solid var(--line); border-radius:18px; overflow:hidden; }
-    .message-head { display:flex; justify-content:space-between; gap:12px; align-items:center; background:#f0f5f8; padding:14px 18px; border-bottom:1px solid var(--line); }
-    .message-head strong { font-family:Manrope,sans-serif; }
-    .channel { color:var(--blue-2); font-size:11px; font-weight:900; letter-spacing:.1em; }
-    .message-body { padding:22px; font-size:14px; color:#334759; white-space:pre-line; }
-    .variable { background:#dff2fd; color:#075e91; border-radius:4px; padding:1px 4px; font-weight:700; }
-    .decision-band { background:var(--ink); color:white; }
-    .decision-grid { display:grid; grid-template-columns:.78fr 1.22fr; gap:70px; align-items:start; }
-    .decision-band .section-label { color:var(--sky); }
-    .decision-band p { color:#bfd0dc; }
-    .options { display:grid; gap:16px; }
-    .option { border:1px solid rgba(255,255,255,.13); padding:24px; border-radius:16px; background:rgba(255,255,255,.04); }
-    .option.recommended { border-color:rgba(29,161,242,.55); background:rgba(29,161,242,.08); }
-    .option-label { color:var(--sky); font-size:11px; font-weight:900; letter-spacing:.13em; text-transform:uppercase; }
-    .option h3 { margin:8px 0; font-size:21px; }
-    .option p { font-size:14px; }
-    .tips-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:50px; }
-    .tip { padding:28px 0; border-top:1px solid #cdd9e0; }
-    .tip-no { color:var(--blue-2); font-size:12px; font-weight:900; }
-    .tip h3 { margin:9px 0 8px; font-size:22px; }
-    .tip p { color:var(--muted); font-size:15px; max-width:48ch; }
-    .final-cta { padding:110px 0; background:#e8f0f5; }
-    .cta-panel { background:var(--white); border-radius:28px; padding:65px; display:grid; grid-template-columns:1fr auto; gap:40px; align-items:center; box-shadow:var(--shadow); }
-    .cta-panel h2 { font-size:clamp(34px,4vw,52px); }
-    .cta-panel p { color:var(--muted); margin-top:13px; max-width:650px; }
-    .book { text-decoration:none; background:var(--ink); color:white; padding:17px 24px; border-radius:11px; font-weight:900; white-space:nowrap; transition:.2s; }
-    .book:hover { transform:translateY(-2px); background:var(--ink-3); }
-    footer { background:var(--ink); color:#aebfcb; padding:34px 0; font-size:13px; }
-    .footer-inner { display:flex; justify-content:space-between; gap:20px; }
-    @media(max-width:980px){
-      .hero-grid,.sequence-grid,.decision-grid { grid-template-columns:1fr; }
-      .hero-grid { gap:48px; }
-      .form-card { max-width:620px; }
-      .flow { grid-template-columns:1fr 1fr; }
-      .flow-step:not(:last-child):after { display:none; }
-      .timeline { position:static; }
-      .cta-panel { grid-template-columns:1fr; }
-      .book { justify-self:start; }
-    }
-    @media(max-width:640px){
-      .container { width:min(100% - 28px,var(--max)); }
-      .nav { padding:18px 0; }
-      .nav-back span { display:none; }
-      .hero { min-height:auto; padding:125px 0 74px; }
-      .hero h1 { font-size:50px; }
-      .hero-copy { font-size:17px; }
-      .form-card { padding:28px 20px; }
-      .section { padding:78px 0; }
-      .flow,.tips-grid { grid-template-columns:1fr; }
-      .flow-step { min-height:auto; }
-      .message-head { align-items:flex-start; flex-direction:column; }
-      .message-body { padding:18px; }
-      .cta-panel { padding:38px 24px; }
-      .book { width:100%; text-align:center; }
-      .footer-inner { flex-direction:column; }
-    }
-    @media(prefers-reduced-motion:reduce){
-      *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; transition-duration:.01ms!important; }
-    }
+    :root{--navy:#07131f;--navy2:#0d2235;--blue:#159fe8;--blue2:#087fc0;--sky:#dff3ff;--cream:#fbfaf6;--paper:#f2f6f8;--white:#fff;--text:#142433;--muted:#5e6c78;--line:#d7e1e7;--max:1120px}
+    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,sans-serif;color:var(--text);background:var(--cream);line-height:1.65;overflow-x:hidden}h1,h2,h3,.logo{font-family:Manrope,sans-serif;line-height:1.06}a{color:inherit}.container{width:min(var(--max),calc(100% - 40px));margin:auto}.topline{background:var(--blue);color:#03131e;text-align:center;padding:9px 20px;font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.nav{background:var(--navy);color:white;padding:20px 0}.nav-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}.logo{text-decoration:none;font-size:21px;font-weight:800;letter-spacing:-.04em}.nav a:last-child{font-size:13px;font-weight:700;color:#cdeaff;text-decoration:none}.hero{background:var(--navy);color:white;padding:68px 0 88px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 82% 15%,rgba(21,159,232,.25),transparent 29%);pointer-events:none}.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .8fr;gap:66px;align-items:center}.eyebrow,.kicker{font-size:12px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:17px}.hero .eyebrow{color:#8ed6ff}.hero h1{font-size:clamp(45px,5.2vw,68px);letter-spacing:-.06em;max-width:700px}.hero h1 em{font-style:normal;color:#8ed6ff}.hero-copy{font-size:18px;color:#d5e2ec;max-width:620px;margin:22px 0}.checkline{display:grid;gap:9px;margin:22px 0 26px;list-style:none}.checkline li{display:flex;gap:10px;align-items:flex-start;font-weight:700;color:#edf8ff}.checkline li:before{content:"✓";color:#78d2ff;font-weight:900}.primary{display:inline-flex;align-items:center;justify-content:center;background:var(--blue);color:#03131e;padding:16px 24px;border-radius:8px;text-decoration:none;font-weight:900;transition:.2s;box-shadow:0 12px 30px rgba(21,159,232,.2)}.primary:hover{background:#45b8f5;transform:translateY(-2px)}.form-card{background:white;color:var(--text);border-radius:20px;padding:30px;box-shadow:0 30px 80px rgba(0,0,0,.3);position:relative}.form-card:before{content:"FREE DOWNLOAD";position:absolute;top:-13px;left:25px;background:var(--blue);color:#03131e;padding:6px 11px;border-radius:5px;font-size:11px;font-weight:900;letter-spacing:.13em}.form-card h2{font-size:28px;letter-spacing:-.035em;margin:7px 0 8px}.form-card>p{font-size:14px;color:var(--muted);margin-bottom:15px}.ghl-form{width:100%;height:522px;border:0;border-radius:8px;display:block}.form-note{text-align:center;font-size:11px!important;color:#7a8791!important;margin:8px 0 0!important}.section{padding:96px 0}.center{text-align:center}.center h2,.center .lead{margin-left:auto;margin-right:auto}.section h2{font-size:clamp(36px,5vw,58px);letter-spacing:-.055em;max-width:870px}.lead{font-size:18px;color:var(--muted);max-width:720px;margin-top:18px}.problem{background:white}.problem-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}.pullquote{font-family:Manrope,sans-serif;font-size:clamp(28px,3.5vw,46px);font-weight:800;line-height:1.16;letter-spacing:-.045em;padding-left:25px;border-left:5px solid var(--blue)}.body-copy{font-size:18px;color:var(--muted);display:grid;gap:17px}.body-copy strong{color:var(--text)}.blueband{background:var(--sky)}.included{display:grid;grid-template-columns:repeat(2,1fr);gap:0 50px;margin-top:48px}.include{padding:26px 0;border-top:1px solid #b6d9ec;display:grid;grid-template-columns:42px 1fr;gap:15px}.include-no{width:37px;height:37px;border-radius:50%;display:grid;place-items:center;background:var(--blue);font-weight:900}.include h3{font-size:20px;margin-bottom:6px}.include p{color:#4d6575;font-size:15px}.inline-cta{text-align:center;margin-top:45px}.inline-cta p{font-size:13px;color:var(--muted);margin-top:10px}.workflow{background:var(--cream)}.steps{margin:48px auto 0;max-width:860px}.step{display:grid;grid-template-columns:90px 1fr;gap:28px;padding:28px 0;border-top:1px solid var(--line)}.step:last-child{border-bottom:1px solid var(--line)}.step-num{font-family:Manrope,sans-serif;font-size:38px;font-weight:800;color:var(--blue)}.step h3{font-size:24px;margin-bottom:7px}.step p{color:var(--muted)}.preview{background:var(--navy);color:white}.preview .kicker{color:#8ed6ff}.preview .lead{color:#bad0df}.messages{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:45px}.message{background:white;color:var(--text);border-radius:14px;overflow:hidden}.message-head{background:#e8f4fb;padding:14px 18px;font-size:12px;font-weight:900;letter-spacing:.1em;color:var(--blue2)}.message-body{padding:20px;font-size:14px;color:#425463;white-space:pre-line}.fit{background:white}.fit-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}.fit-list{list-style:none;display:grid;gap:16px}.fit-list li{padding:17px 0 17px 38px;border-bottom:1px solid var(--line);position:relative;font-weight:700}.fit-list li:before{content:"✓";position:absolute;left:0;color:var(--blue);font-size:21px;font-weight:900}.about{background:#e8eff3}.about-grid{display:grid;grid-template-columns:310px 1fr;gap:60px;align-items:center}.portrait{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:12px;filter:saturate(.9)}.about h2{margin-bottom:20px}.about p{color:var(--muted);font-size:17px;margin-top:14px}.faq{background:var(--cream)}.faq-list{max-width:850px;margin:45px auto 0;border-top:1px solid var(--line)}details{border-bottom:1px solid var(--line);padding:20px 0}summary{font-family:Manrope,sans-serif;font-size:19px;font-weight:800;cursor:pointer;list-style:none;padding-right:35px;position:relative}summary:after{content:"+";position:absolute;right:4px;color:var(--blue);font-size:25px;top:-5px}details[open] summary:after{content:"–"}details p{color:var(--muted);padding-top:12px;max-width:70ch}.final{background:var(--blue);padding:78px 0;text-align:center;color:#03131e}.final h2{margin:auto;font-size:clamp(38px,5vw,60px)}.final p{max-width:680px;margin:18px auto 28px;font-size:18px}.final .primary{background:var(--navy);color:white;box-shadow:none}.final .primary:hover{background:var(--navy2)}footer{background:var(--navy);color:#a9bdcb;padding:30px 0;font-size:13px}.footer-inner{display:flex;justify-content:space-between;gap:20px}.footer-inner strong{color:white}@media(max-width:900px){.hero-grid,.problem-grid,.fit-grid,.about-grid{grid-template-columns:1fr}.hero-grid{gap:52px}.form-card{max-width:620px}.included,.messages{grid-template-columns:1fr}.about-grid{max-width:720px}.portrait{max-width:330px}.messages{max-width:650px;margin-left:auto;margin-right:auto}}@media(max-width:600px){.container{width:min(100% - 28px,var(--max))}.nav a:last-child{display:none}.hero{padding:52px 0 66px}.hero h1{font-size:48px}.hero-copy{font-size:17px}.form-card{padding:27px 18px}.ghl-form{height:540px}.section{padding:72px 0}.problem-grid,.fit-grid,.about-grid{gap:38px}.included{gap:0}.include{grid-template-columns:36px 1fr}.step{grid-template-columns:54px 1fr;gap:15px}.step-num{font-size:28px}.messages{grid-template-columns:1fr}.footer-inner{flex-direction:column}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
   </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a class="logo" href="index.html">Nate Yoder</a>
-      <a class="nav-back" href="index.html"><span>Back to ItsNateYoder.com</span> →</a>
-    </div>
-  </nav>
+  <div class="topline">Free resource for service businesses</div>
+  <nav class="nav"><div class="container nav-inner"><a class="logo" href="index.html">Nate Yoder</a><a href="#get-blueprint">Get the Free Blueprint ↓</a></div></nav>
 
   <header class="hero">
     <div class="container hero-grid">
       <div>
-        <div class="eyebrow"><span class="eyebrow-dot"></span> The Systems Library / 01</div>
-        <h1>Your happy customers aren't leaving reviews. <span>Your system is the problem.</span></h1>
-        <p class="hero-copy">Use this plug-and-play sequence to ask at the right moment, follow up without being annoying, and make review requests automatic.</p>
-        <div class="hero-proof">
-          <span class="proof"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg> Exact SMS templates</span>
-          <span class="proof"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg> Timing & stop conditions</span>
-          <span class="proof"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg> CRM-ready workflow</span>
-        </div>
+        <div class="eyebrow">The Review Automation Blueprint</div>
+        <h1>Your best customers are happy. <em>They just forget to leave the review.</em></h1>
+        <p class="hero-copy">Get the exact follow-up sequence that asks at the right moment, follows up without becoming annoying, and stops as soon as the review is posted.</p>
+        <ul class="checkline"><li>Copy-and-paste SMS and email templates</li><li>Exact timing, review checks, and stop conditions</li><li>A CRM-ready workflow your team can implement</li></ul>
+        <a class="primary" href="#get-blueprint">Send Me the Free Blueprint ↓</a>
       </div>
-
-      <aside class="form-card" id="download">
-        <h2>Send me the blueprint</h2>
-        <p>Enter your information to unlock the Review Automation Blueprint.</p>
-        <iframe
-          class="ghl-form"
-          src="https://api.conversionpros.io/widget/form/MsDqvtzRPMJ9MNl0wCKg"
-          id="inline-MsDqvtzRPMJ9MNl0wCKg"
-          data-layout="{'id':'INLINE'}"
-          data-trigger-type="alwaysShow"
-          data-trigger-value=""
-          data-activation-type="alwaysActivated"
-          data-activation-value=""
-          data-deactivation-type="neverDeactivate"
-          data-deactivation-value=""
-          data-form-name="Review framework"
-          data-height="522"
-          data-layout-iframe-id="inline-MsDqvtzRPMJ9MNl0wCKg"
-          data-form-id="MsDqvtzRPMJ9MNl0wCKg"
-          title="Review framework"></iframe>
+      <aside class="form-card" id="get-blueprint">
+        <h2>Get the complete blueprint</h2>
+        <p>Enter your information below and get immediate access on the next page.</p>
+        <iframe class="ghl-form" src="https://api.conversionpros.io/widget/form/MsDqvtzRPMJ9MNl0wCKg" id="inline-MsDqvtzRPMJ9MNl0wCKg" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Review framework" data-height="522" data-layout-iframe-id="inline-MsDqvtzRPMJ9MNl0wCKg" data-form-id="MsDqvtzRPMJ9MNl0wCKg" title="Get the Review Automation Blueprint"></iframe>
         <script src="https://api.conversionpros.io/js/form_embed.js"></script>
         <p class="form-note">Your information is securely stored.</p>
       </aside>
@@ -207,109 +40,83 @@
   </header>
 
   <main>
-    <section class="section">
-      <div class="container">
-        <div class="section-label">The automation at a glance</div>
-        <h2>One completed job. Three thoughtful asks. Zero reliance on memory.</h2>
-        <p class="lead">The sequence starts when the job is marked complete and stops the moment the customer leaves a review.</p>
-        <div class="flow" aria-label="Review automation sequence">
-          <article class="flow-step"><span class="step-no">STEP 01</span><h3>Job completed</h3><p>Your CRM marks the work complete and triggers the workflow immediately.</p></article>
-          <article class="flow-step"><span class="step-no">STEP 02</span><h3>Personal SMS</h3><p>Thank them by name, mention who helped, and reference the problem solved.</p></article>
-          <article class="flow-step decision"><span class="step-no">WAIT 2 DAYS</span><h3>Review posted?</h3><p>Check before contacting them again.</p><div class="branch"><span>YES → STOP</span><span>NO → EMAIL</span></div></article>
-          <article class="flow-step"><span class="step-no">WAIT 1 DAY</span><h3>Final SMS</h3><p>Send one concise reminder while the experience is still fresh.</p></article>
-          <article class="flow-step"><span class="step-no">FINAL STEP</span><h3>Human follow-up</h3><p>Notify your team for a personal call—or enter a limited reminder sequence.</p></article>
-        </div>
+    <section class="section problem">
+      <div class="container problem-grid">
+        <blockquote class="pullquote">Great service does not automatically create great reviews.</blockquote>
+        <div class="body-copy"><p>You can deliver an incredible result and still hear nothing online. Not because the customer was unhappy—but because the request came too late, felt generic, or never happened.</p><p><strong>The problem is not your reputation. It is the missing system between “job complete” and “review posted.”</strong></p><p>This blueprint gives you that system without turning your follow-up into spam.</p></div>
       </div>
     </section>
 
-    <section class="section sequence">
-      <div class="container">
-        <div class="section-label">Copy-and-paste sequence</div>
-        <h2>The messages are already written. Personalize three fields.</h2>
-        <div class="sequence-grid">
-          <div class="timeline">
-            <div class="timeline-item"><div class="time-dot">NOW</div><div><strong>SMS #1</strong><p>Send when the job is completed.</p></div></div>
-            <div class="timeline-item"><div class="time-dot">+2D</div><div><strong>Email</strong><p>Only if no review is detected.</p></div></div>
-            <div class="timeline-item"><div class="time-dot">+1D</div><div><strong>Final SMS</strong><p>Stop after this automated reminder.</p></div></div>
-          </div>
-          <div class="messages">
-            <article class="message">
-              <div class="message-head"><strong>Thank them while the win is fresh</strong><span class="channel">SMS #1</span></div>
-              <div class="message-body">Hi <span class="variable">First Name</span>,
+    <section class="section blueband">
+      <div class="container center"><div class="kicker">What you get</div><h2>Everything you need to turn review requests into a repeatable process.</h2><p class="lead">Not another vague checklist. This is the sequence, wording, timing, and decision logic.</p></div>
+      <div class="container included">
+        <article class="include"><span class="include-no">1</span><div><h3>The immediate thank-you SMS</h3><p>A personal first ask sent while the successful outcome is still fresh.</p></div></article>
+        <article class="include"><span class="include-no">2</span><div><h3>The two-day email follow-up</h3><p>A respectful second touch for customers who missed the first message.</p></div></article>
+        <article class="include"><span class="include-no">3</span><div><h3>The final reminder</h3><p>One concise last ask—then a hard stop on automated follow-up.</p></div></article>
+        <article class="include"><span class="include-no">4</span><div><h3>Review-detection logic</h3><p>Check before every send so customers who already reviewed are removed.</p></div></article>
+        <article class="include"><span class="include-no">5</span><div><h3>Human handoff options</h3><p>Know when automation should stop and a team member should take over.</p></div></article>
+        <article class="include"><span class="include-no">6</span><div><h3>Implementation rules</h3><p>Personalization fields, timing guidance, and guardrails that protect trust.</p></div></article>
+      </div>
+      <div class="container inline-cta"><a class="primary" href="#get-blueprint">Get the Free Blueprint</a><p>Complete the short form above for immediate access.</p></div>
+    </section>
 
-We wanted to thank you again from the bottom of our hearts for trusting us. I'm so glad <span class="variable">Team Member</span> was able to help you with <span class="variable">Problem Solved</span>.
-
-As a small business, reviews mean the world to us, and we'd be incredibly grateful if you took 30 seconds to share your experience.
-
-Leave your review here: <span class="variable">Google Review Link</span>
-
-Thank you again—we truly appreciate your support!</div>
-            </article>
-            <article class="message">
-              <div class="message-head"><strong>Catch the text that got buried</strong><span class="channel">EMAIL</span></div>
-              <div class="message-body"><strong>Subject: A quick favor</strong>
-
-Hi <span class="variable">First Name</span>,
-
-I just wanted to follow up in case my text got buried. If you have a minute, we'd be incredibly grateful if you shared your experience with us.
-
-Your review helps other people feel confident choosing our business and helps support our team.
-
-Leave your review here: <span class="variable">Google Review Link</span>
-
-Thank you again for your support.</div>
-            </article>
-            <article class="message">
-              <div class="message-head"><strong>One last respectful reminder</strong><span class="channel">FINAL SMS</span></div>
-              <div class="message-body">Hi <span class="variable">First Name</span>,
-
-Just wanted to send one last reminder while your experience is still fresh. If you haven't had a chance yet, we'd really appreciate your feedback.
-
-Here's the review link one more time: <span class="variable">Google Review Link</span>
-
-Thank you so much!</div>
-            </article>
-          </div>
-        </div>
+    <section class="section workflow">
+      <div class="container center"><div class="kicker">The workflow</div><h2>One completed job. Three thoughtful asks. Zero reliance on memory.</h2></div>
+      <div class="container steps">
+        <article class="step"><span class="step-num">01</span><div><h3>Mark the job complete</h3><p>Your CRM uses the completion event to start the workflow at the emotional high point.</p></div></article>
+        <article class="step"><span class="step-num">02</span><div><h3>Send a personal SMS</h3><p>Thank the customer by name, reference the team member, and acknowledge the problem solved.</p></div></article>
+        <article class="step"><span class="step-num">03</span><div><h3>Check for the review</h3><p>If the customer reviewed, stop. If not, send the follow-up email two days later.</p></div></article>
+        <article class="step"><span class="step-num">04</span><div><h3>Send one final reminder</h3><p>Follow up once more by SMS while the experience is still fresh.</p></div></article>
+        <article class="step"><span class="step-num">05</span><div><h3>Stop or hand off to a human</h3><p>End the automation or notify the team member who served the customer for a personal touch.</p></div></article>
       </div>
     </section>
 
-    <section class="section decision-band">
-      <div class="container decision-grid">
-        <div>
-          <div class="section-label">If there is still no review</div>
-          <h2>Automation should hand off—not become harassment.</h2>
-          <p class="lead">After the final SMS, choose a controlled next step instead of sending endless reminders.</p>
-        </div>
-        <div class="options">
-          <article class="option recommended"><div class="option-label">Recommended</div><h3>Trigger a human call</h3><p>Notify the team member who served the customer. If the experience was positive, ask personally and respectfully.</p></article>
-          <article class="option"><div class="option-label">Alternative</div><h3>Use a limited reminder track</h3><p>Move them into a weekly reminder workflow. Stop immediately when they review—or automatically after 30 days.</p></article>
-        </div>
+    <section class="section preview">
+      <div class="container center"><div class="kicker">Inside the blueprint</div><h2>The messages are already written.</h2><p class="lead">Personalize the first name, team member, problem solved, and review link.</p></div>
+      <div class="container messages">
+        <article class="message"><div class="message-head">SMS · IMMEDIATELY</div><div class="message-body">Hi [First Name],
+
+Thank you again for trusting us. I'm so glad [Team Member] was able to help with [Problem Solved].
+
+As a small business, reviews mean the world to us...</div></article>
+        <article class="message"><div class="message-head">EMAIL · TWO DAYS LATER</div><div class="message-body">Subject: A quick favor
+
+I wanted to follow up in case my text got buried. Your review helps other people feel confident choosing our business...</div></article>
+        <article class="message"><div class="message-head">FINAL SMS · ONE DAY LATER</div><div class="message-body">Just wanted to send one last reminder while your experience is still fresh.
+
+Here's the review link one more time...</div></article>
+      </div>
+      <div class="container inline-cta"><a class="primary" href="#get-blueprint">Send Me Every Template</a></div>
+    </section>
+
+    <section class="section fit">
+      <div class="container fit-grid">
+        <div><div class="kicker">Who it is for</div><h2>Built for businesses that win through trust.</h2><p class="lead">If a completed job, appointment, project, or service should produce a review, this workflow gives your team a reliable way to ask.</p></div>
+        <ul class="fit-list"><li>Home-service and contractor businesses</li><li>Professional-service firms</li><li>Local businesses with repeatable customer outcomes</li><li>Teams already using a CRM but lacking a review process</li><li>Owners who want automation without sacrificing the human touch</li></ul>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-label">Implementation rules</div>
-        <h2>The system works because it feels human—not because it sends more messages.</h2>
-        <div class="tips-grid">
-          <article class="tip"><span class="tip-no">01</span><h3>Personalize only what matters</h3><p>First name, team member, and problem solved are enough to make the sequence feel specific.</p></article>
-          <article class="tip"><span class="tip-no">02</span><h3>Detect reviews before every send</h3><p>The fastest way to annoy a happy customer is to keep asking after they already reviewed you.</p></article>
-          <article class="tip"><span class="tip-no">03</span><h3>Ask at the emotional high point</h3><p>Start when the work is marked complete—while the outcome and gratitude are still fresh.</p></article>
-          <article class="tip"><span class="tip-no">04</span><h3>Put a hard stop on follow-up</h3><p>Two automated reminders are enough. After that, use a human touch or end the sequence.</p></article>
-        </div>
+    <section class="section about">
+      <div class="container about-grid">
+        <img class="portrait" src="images/nate-headshot.jpg" alt="Nate Yoder">
+        <div><div class="kicker">About Nate</div><h2>Systems should give business owners their time back.</h2><p>Nate Yoder helps businesses replace disconnected tasks and owner-dependent processes with clear systems, practical automation, and custom software.</p><p>Through Mydas, he focuses on finding the operational bottlenecks that limit growth—then building the workflows and technology that remove them.</p><p>The Review Automation Blueprint is designed in that same spirit: simple enough to use, specific enough to implement, and human enough to protect the customer relationship.</p></div>
       </div>
     </section>
 
-    <section class="final-cta">
-      <div class="container cta-panel">
-        <div><div class="section-label">Want it built for you?</div><h2>Turn this blueprint into a working CRM automation.</h2><p>Book an Automation Audit and we'll map the trigger, messages, review detection, and team handoff around your current systems.</p></div>
-        <a class="book" href="https://links.mydas.ai/widget/booking/zCP75fYt9rf8v6no6BXM" target="_blank" rel="noopener">Book an Automation Audit →</a>
+    <section class="section faq">
+      <div class="container center"><div class="kicker">Questions</div><h2>Before you download</h2></div>
+      <div class="container faq-list">
+        <details><summary>Is the blueprint really free?</summary><p>Yes. Enter your information in the form and you will receive immediate access to the complete download.</p></details>
+        <details><summary>What does it include?</summary><p>The SMS and email templates, timing rules, review checks, stop conditions, human handoff, and implementation guidance.</p></details>
+        <details><summary>Do I need a specific CRM?</summary><p>No. The logic is CRM-ready and can be adapted to the platform your business already uses.</p></details>
+        <details><summary>Will this overwhelm customers with messages?</summary><p>No. The workflow uses a limited sequence, checks for a review before every follow-up, and includes a hard stop.</p></details>
+        <details><summary>Can Mydas implement it for me?</summary><p>Yes. The blueprint can be mapped into your existing systems as part of an Automation Audit and implementation engagement.</p></details>
       </div>
     </section>
+
+    <section class="final"><div class="container"><h2>Stop leaving reviews to chance.</h2><p>Use the exact sequence to make the ask at the right moment, follow up respectfully, and turn a completed job into a repeatable reputation-building process.</p><a class="primary" href="#get-blueprint">Get the Review Automation Blueprint ↑</a></div></section>
   </main>
 
-  <footer><div class="container footer-inner"><strong>Nate Yoder / The Systems Library</strong><span>Practical systems for businesses that want to scale.</span></div></footer>
-
+  <footer><div class="container footer-inner"><strong>Nate Yoder / Mydas</strong><span>Practical systems for businesses that want to scale.</span></div></footer>
 </body>
 </html>
